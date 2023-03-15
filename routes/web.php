@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\IndexController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ShopController;
-use App\Http\Controllers\ShopSingleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShopSingleController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,9 @@ Route::get('/shop',[ShopController::class ,'shopview'])->name('shop');
 Route::get('/about',[AboutController::class ,'aboutview'])->name('about');
 Route::get('/contact',[ContactController::class ,'Contactview'])->name('contact');
 Route::get('/cart',[CartController::class ,'cartview'])->name('cart');
-Route::get('/shopsingle',[ShopSingleController::class ,'shopsingleview'])->name('shopsingle');
+Route::get('/shopsingle', [ShopSingleController::class, 'shopsingleview'])->name('shopsingle');
+Route::post('/addProductsAdmin',[ProductController::class ,'addProduct'])->name('addproduct');
+Route::get('/ProductsAdmin',[ProductController::class ,'Product'])->name('ProductsAdmin');
 
 
 require __DIR__.'/auth.php';

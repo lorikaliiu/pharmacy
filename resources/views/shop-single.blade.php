@@ -86,11 +86,12 @@
       </div>
     </div>
 
+    @foreach($product as $pr)
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
           <div class="col-md-12 mb-0"><a href="{{ route('home') }}">Home</a> <span class="mx-2 mb-0">/</span> <a
-              href="{{ route('shop') }}">Store</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Ibuprofen Tablets, 200mg</strong></div>
+              href="{{ route('shop') }}">Store</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">{{ $pr->title }}</strong></div>
         </div>
       </div>
     </div>
@@ -100,19 +101,19 @@
         <div class="row">
           <div class="col-md-5 mr-auto">
             <div class="border text-center">
-              <img src="images/product_07_large.png" alt="Image" class="img-fluid p-5">
+              <img src="{{ asset($products->img) }}" alt="{{ $pr->title }}" class="img-fluid p-5">
             </div>
           </div>
           <div class="col-md-6">
-            <h2 class="text-black">Ibuprofen Tablets, 200mg</h2>
+            <h2 class="text-black">{{ $product->title }}</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus
               soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas,
               distinctio, aperiam, ratione dolore.</p>
             
 
-            <p><del>$95.00</del>  <strong class="text-primary h4">$55.00</strong></p>
+            <p><strong class="text-primary h4"> {{ $pr->price }}$</strong></p>
 
-            
+            @endforeach
             
             <div class="mb-5">
               <div class="input-group mb-3" style="max-width: 220px;">
@@ -210,7 +211,7 @@
           <div class="col-lg-6 mb-5 mb-lg-0">
             <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('images/bg_1.jpg');">
               <div class="banner-1-inner align-self-center">
-                <h2>Pharma Products</h2>
+                <h2>Pharma pr</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem odio voluptatem.
                 </p>
               </div>

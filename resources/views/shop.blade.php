@@ -117,8 +117,25 @@
             </div>
           </div>
         </div>
-    
         <div class="row">
+          @foreach($products as $product)
+              <div class="col-sm-6 col-lg-4 text-center item mb-4">
+                <a href="{{ route('shopsingle', ['id' => $product->id]) }}"><img src="{{ asset($product->img) }}" alt="{{ $product->title }}"></a>
+                  <h3 class="text-dark"><a href="#">{{ $product->title }}</a></h3>
+                  <p class="price">
+                      {{ $product->price }}$
+                  </p>
+              </div>
+              {{-- <div class="col-sm-6 col-lg-4 text-center item mb-4">
+                <span class="tag">Sale</span>
+                <a href="{{route('shopsingle')}}"> <img src="images/product_01.png" alt="Image"></a>
+                <h3 class="text-dark"><a href="{{route('shopsingle')}}">Bioderma</a></h3>
+                <p class="price"><del>95.00</del> &mdash; $55.00</p>
+              </div> --}}
+          @endforeach
+      </div>
+      
+        {{-- <div class="row">
           <div class="col-sm-6 col-lg-4 text-center item mb-4">
             <span class="tag">Sale</span>
             <a href="{{route('shopsingle')}}"> <img src="images/product_01.png" alt="Image"></a>
@@ -188,7 +205,7 @@
             <h3 class="text-dark"><a href="{{route('shopsingle')}}">Poo Pourri</a></h3>
             <p class="price"><del>$89</del> &mdash; $38.00</p>
           </div>
-        </div>
+        </div> --}}
         <div class="row mt-5">
           <div class="col-md-12 text-center">
             <div class="site-block-27">
