@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function indexview(){
-        $products = Product::all();
+        $products = Product::paginate(10);
         return view('index',compact('products'));
     }
 }

@@ -36,7 +36,7 @@
               <h2 class="sub-title">Wirksame Medizin, täglich neue Medizin</h2>
               <h1>Willkommen zu Apotheke Frutigen</h1>
               <p>
-                <a href="{{ route('shop') }}" class="btn btn-primary px-5 py-3">Products</a>
+                <a href="{{ route('shop') }}" class="btn btn-primary px-5 py-3">Produkte</a>
               </p>
             </div>
           </div>
@@ -89,7 +89,7 @@
       <div class="container">
         <div class="row">
           <div class="title-section text-center col-12">
-            <h2 class="text-uppercase">Popular Products</h2>
+            <h2 class="text-uppercase">Beliebte Produkte</h2>
           </div>
         </div>
 
@@ -107,7 +107,7 @@
         </div>
         <div class="row mt-5">
           <div class="col-12 text-center">
-            <a href="{{ route('shop') }}" class="btn btn-primary px-4 py-3">View All Products</a>
+            <a href="{{ route('shop') }}" class="btn btn-primary px-4 py-3">Alle Produkte anzeigen</a>
           </div>
         </div>
       </div>

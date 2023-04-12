@@ -52,26 +52,19 @@
         <div class="site-section">
             <div class="container">
 
-                <div class="row">
+                <div class="row" style="align-items: center">
                     <div class="col-lg-6">
-                        <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
-                        <div id="slider-range" class="border-primary"></div>
-                        <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white"
-                            disabled="" />
+                        <form action="{{ route('shop') }}" method="get">
+                            <h3 class="mb-3 h6 text-uppercase text-black d-block">Nach Preis filtern</h3>
+                            <div id="slider-range" class="border-primary"></div>
+                            <input type="text" name="price_query" id="amount"
+                                class="form-control border-0 pl-0 bg-white" />
+
                     </div>
                     <div class="col-lg-6">
-                        <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Reference</h3>
-                        <button type="button" class="btn btn-secondary btn-md dropdown-toggle px-4"
-                            id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                            <a class="dropdown-item" href="#">Relevance</a>
-                            <a class="dropdown-item" href="#">Name, A to Z</a>
-                            <a class="dropdown-item" href="#">Name, Z to A</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Price, low to high</a>
-                            <a class="dropdown-item" href="#">Price, high to low</a>
-                        </div>
+                        <button type="submit" class="btn btn-secondary btn-md  px-4">Suchen</button>
                     </div>
+                    </form>
                 </div>
                 <div class="row">
                     @foreach ($products as $product)
@@ -126,7 +119,25 @@
 
         @include('layouts.footer')
     </div>
+    <script>
+        $(function() {
+            var minPrice = 0; // Minimum price
+            var maxPrice = 1000; // Maximum price
 
+            $("#slider-range").slider({
+                range: true,
+                min: minPrice,
+                max: maxPrice,
+                values: [minPrice, maxPrice],
+                slide: function(event, ui) {
+                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                }
+            });
+
+            $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider(
+                "values", 1));
+        });
+    </script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/popper.min.js"></script>
