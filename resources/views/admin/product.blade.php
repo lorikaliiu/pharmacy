@@ -147,7 +147,44 @@
                                 <div class="card o-hidden border-0 shadow-lg my-5">
                                     <div class="card-body p-0">
                                         <!-- Nested Row within Card Body -->
-                                        <div class="row">
+                                        <form method="POST" action="{{ route('addproduct') }}"
+                                        class="user" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="p-3 p-lg-5 border">
+                                                <div class="form-group row">
+                                                  <div class="col-md-12">
+                                                    <label for="title" class="text-black">Ttile <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" id="title" name="title" required>
+                                                  </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                  <div class="col-md-12">
+                                                    <label for="price" class="text-black">Price <span class="text-danger">*</span></label>
+                                                    <input type="number" class="form-control" id="price" name="price" placeholder="" required>
+                                                  </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                  <div class="col-md-12">
+                                                    <label for="img" class="text-black">Image Of Product </label>
+                                                    <input type="file" class="form-control" id="img" name="img" required>
+                                                  </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                  <div class="col-md-12">
+                                                    <label for="detail" class="text-black">Detail </label>
+                                                    <textarea name="detail" id="detail" cols="30" rows="7" class="form-control" required></textarea>
+                                                  </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                  <div class="col-lg-12">
+                                                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Post">
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </form>
+
+                                        {{-- <div class="row">
                                             <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
                                             <div class="col-lg-6">
                                                 <div class="p-5">
@@ -183,7 +220,7 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
 

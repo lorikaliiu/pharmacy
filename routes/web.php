@@ -22,9 +22,7 @@ use App\Http\Controllers\Admin\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [IndexController::class, 'indexview']);
 Route::get('/adminhome', [AdminController::class, 'adminhome'])->middleware(['auth', 'verified'])->name('adminhome');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

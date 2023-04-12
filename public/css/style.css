@@ -45,7 +45,7 @@ a {
   z-index: 2;
   overflow: hidden; }
   .offcanvas-menu .site-wrap:before {
-    opacity: 1;
+    opacity: 0;
     visibility: visible; }
 
 .btn {
@@ -1123,3 +1123,10 @@ a {
 
 .custom-table td {
   color: #000; }
+
+
+
+
+  .productsallpublished{
+    width: 100%;
+  }
