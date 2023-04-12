@@ -33,6 +33,7 @@ Route::get('/home',[IndexController::class ,'indexview'])->name('home');
 Route::get('/shop',[ShopController::class ,'shopview'])->name('shop');
 Route::get('/about',[AboutController::class ,'aboutview'])->name('about');
 Route::get('/contact',[ContactController::class ,'Contactview'])->name('contact');
+Route::post('/Contact',[ContactController::class ,'Contact'])->name('Contact');
 Route::get('/cart',[CartController::class ,'cartview'])->name('cart');
 Route::get('/shopsingle', [ShopSingleController::class, 'shopsingleview'])->name('shopsingle');
 Route::post('/addProductsAdmin',[ProductController::class ,'addProduct'])->name('addproduct');

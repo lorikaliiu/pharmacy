@@ -44,40 +44,40 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="h3 mb-5 text-black">Get In Touch</h2>
+            <h2 class="h3 mb-5 text-black">In Kontakt kommen</h2>
           </div>
           <div class="col-md-12">
 
-            <form action="#" method="post">
-
+            <form action="{{route('Contact')}}" method="post">
+             @csrf
               <div class="p-3 p-lg-5 border">
                 <div class="form-group row">
                   <div class="col-md-6">
-                    <label for="c_fname" class="text-black">First Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="c_fname" name="c_fname">
+                    <label for="c_fname" class="text-black">Vorname<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="name" name="name" required>
                   </div>
                   <div class="col-md-6">
-                    <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="c_lname" name="c_lname">
+                    <label for="c_lname" class="text-black">Nachname <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" required>
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-md-12">
                     <label for="c_email" class="text-black">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" id="c_email" name="c_email" placeholder="">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="" required>
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-md-12">
                     <label for="c_subject" class="text-black">Subject </label>
-                    <input type="text" class="form-control" id="c_subject" name="c_subject">
+                    <input type="text" class="form-control" id="subject" name="subject" required>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <div class="col-md-12">
-                    <label for="c_message" class="text-black">Message </label>
-                    <textarea name="c_message" id="c_message" cols="30" rows="7" class="form-control"></textarea>
+                    <label for="c_message" class="text-black"> </label>
+                    <textarea name="message" id="message" cols="30" rows="7" class="form-control" required></textarea>
                   </div>
                 </div>
                 <div class="form-group row">
