@@ -46,6 +46,11 @@
           <div class="col-md-12">
             <h2 class="h3 mb-5 text-black">In Kontakt kommen</h2>
           </div>
+          @if (Illuminate\Support\Facades\Session::has('success'))
+          <span style="color:green">
+              {{ Illuminate\Support\Facades\Session::get('success') }}
+          </span>
+        @endif
           <div class="col-md-12">
 
             <form action="{{route('Contact')}}" method="post">

@@ -29,6 +29,6 @@ class ContactController extends Controller
         'message' => $validatedData['message'],
     ]);
 
-    return redirect()->back()->with('success', 'Thank you for your message. We will get back to you soon!');
+    return redirect()->back()->with('success', 'Danke für deine Nachricht. Wir werden uns bald mit Ihnen in Verbindung setzen!');
 }
 }
