@@ -13,7 +13,7 @@ class ProductController extends Controller
 
         return view('admin.product');
     }
-    
+
     public function addProduct(Request $request){
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
@@ -21,13 +21,13 @@ class ProductController extends Controller
             'img' => 'required|image',
             'detail' => 'required|string'
         ]);
-     
+
         // if ($validator->fails()) {
         //     return redirect()->back()->withErrors($validator)->withInput();
         // }
-    
+
         $imgPath = $request->file('img')->store('public/images');
-    
+
         $product = new Product;
         $product->title = $request->title;
         $product->price = $request->price;
@@ -35,6 +35,45 @@ class ProductController extends Controller
         $product->detail = $request->detail;
         $product->save();
         $request->file('img')->move('images',$imgPath);
-        return redirect('ProductsAdmin')->with('success','Data has been added');
+        return redirect('adminhome')->with('success','Beitrag wurde hinzugefügt');
+
+        }
+
+        public function updateProduct(Request $request, $id) {
+            $validator = Validator::make($request->all(), [
+                'title' => 'required|string|max:255',
+                'price' => 'required|numeric|min:0',
+                'img' => 'image',
+                'detail' => 'required|string'
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+
+            $product = Product::find($id);
+
+            if (!$product) {
+                return redirect()->back()->with('error', 'Product not found');
+            }
+
+            $product->title = $request->title;
+            $product->price = $request->price;
+            $product->detail = $request->detail;
+
+            if ($request->hasFile('img')) {
+                $imgPath = $request->file('img')->store('public/images');
+                $product->img = str_replace('public', '', $imgPath);
+            }
+
+            $product->save();
+
+            return redirect()->route('adminhome', ['id' => $id])->with('success', 'Produkt erfolgreich aktualisiert');
+        }
+
+        public function destroy($id)
+        {
+            Product::where('id',$id)->delete();
+            return redirect('adminhome')->with('success','Das Produkt wurde gelöscht');
         }
     }

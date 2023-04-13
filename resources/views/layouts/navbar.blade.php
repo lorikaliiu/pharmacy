@@ -3,7 +3,7 @@
         <div class="container">
             <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
             <form action="{{ route('shop') }}" method="get">
-                <input type="text" name="query" class="form-control" placeholder="Search keyword and hit enter...">
+                <input type="text" name="query" class="form-control" placeholder="Stichwort suchen und Enter drücken...">
             </form>
         </div>
     </div>

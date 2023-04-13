@@ -12,7 +12,7 @@ class ContactController extends Controller
         return view('contact');
     }
     public function contact(Request $request)
-{
+    {
     $validatedData = $request->validate([
         'name' => 'required',
         'lastname' => 'required',

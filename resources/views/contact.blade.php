@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Pharma</title>
+  <title>Apotheke Frutigen</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -101,7 +101,7 @@
 
 
     <div class="site-section bg-primary">
-      <div class="container">
+      {{-- <div class="container">
         <div class="row">
           <div class="col-12">
             <h2 class="text-white mb-4">Offices</h2>
@@ -125,7 +125,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
 
     </div>
 
