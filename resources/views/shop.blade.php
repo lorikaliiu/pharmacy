@@ -34,85 +34,78 @@
             text-align: center;
             justify-content: center;
         }
+
+        .site-section {
+            margin: 50px 0;
+        }
+
+        .bg-light {
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
     </style>
+    @php
+        $parameters = request()->input('cat_id');
+    @endphp
+    @include('layouts.navbar')
     <div class="site-wrap">
-
-        @include('layouts.navbar')
-
-        <div class="bg-light py-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 mb-0"><a href="{{ route('home') }}">Home</a> <span class="mx-2 mb-0">/</span>
-                        <strong class="text-black">Store</strong>
+        <div class="site-section">
+            <div class="bg-light py-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 mb-0"><a href="{{ route('home') }}">Home</a> <span
+                                class="mx-2 mb-0">/</span> <strong class="text-black">Produkte</strong>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="site-section">
             <div class="container">
-{{-- 
-                <div class="row" style="align-items: center">
-                    <div class="col-lg-6">
-                        <form action="{{ route('shop') }}" method="get">
-                            <h3 class="mb-3 h6 text-uppercase text-black d-block">Nach Preis filtern</h3>
-                            <div id="slider-range" class="border-primary"></div>
-                            <input type="text" name="price_query" id="amount"
-                                class="form-control border-0 pl-0 bg-white" />
-
-                    </div>
-                    <div class="col-lg-6">
-                        <button type="submit" class="btn btn-secondary btn-md  px-4">Suchen</button>
-                    </div>
-                    </form>
-                </div> --}}
-                @php
-                $parameters = request()->input('cat_id');
-            @endphp
-            
-            @if ($parameters)
-                <div class="row">
-                    @foreach ($products->where('cat_id', $parameters) as $product)
-                        <div class="col-sm-6 col-lg-4 text-center item mb-4">
-                            <a href="{{ route('shopsingle', ['id' => $product->id]) }}">
-                                <img class="productsallpublished" src="{{ asset($product->img) }}" alt="{{ $product->title }}">
-                            </a>
-                            <p class="price">
-                                {{ $product->category->title ?? "Don't have" }}
-                            </p>
-                            <h3 class="text-dark">
-                                <a href="#">{{Ucfirst( $product->title) }}</a>
-                            </h3>
-                            <p class="price">
-                                {{ $product->price }}$
-                            </p>
-                            <div>
-                                <a class="feedbackshowmore" href="{{ route('shopsingle', ['id' => $product->id]) }}">Zeig mehr</a>
+                @if ($parameters)
+                    <div class="row">
+                        @foreach ($products->where('cat_id', $parameters) as $product)
+                            <div class="col-sm-6 col-lg-4 text-center item mb-4">
+                                <a href="{{ route('shopsingle', ['id' => $product->id]) }}">
+                                    <img class="productsallpublished" src="{{ asset($product->img) }}"
+                                        alt="{{ $product->title }}">
+                                </a>
+                                <p class="price">
+                                    {{ $product->category->title ?? "Don't have" }}
+                                </p>
+                                <h3 class="text-dark">
+                                    <a href="#">{{ Ucfirst($product->title) }}</a>
+                                </h3>
+                                <p class="price">
+                                    {{ $product->price }}$
+                                </p>
+                                <div>
+                                    <a class="feedbackshowmore"
+                                        href="{{ route('shopsingle', ['id' => $product->id]) }}">Zeig mehr</a>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
-                </div>
-            @else
-                <div class="row">
-                    @foreach ($products as $product)
-                        <div class="col-sm-6 col-lg-4 text-center item mb-4">
-                            <a href="{{ route('shopsingle', ['id' => $product->id]) }}">
-                                <img class="productsallpublished" src="{{ asset($product->img) }}" alt="{{ $product->title }}">
-                            </a>
-                            <p class="price">
-                                {{ $product->category->title ?? "Don't have" }}
-                            </p>
-                            <h3 class="text-dark">
-                                <a href="#">{{ $product->title }}</a>
-                            </h3>
-                            <p class="price">
-                                {{ $product->price }}$
-                            </p>
-                        </div>
-                    @endforeach
-                </div>
-            @endif
-            
+                        @endforeach
+                    </div>
+                @else
+                    <div class="row">
+                        @foreach ($products as $product)
+                            <div class="col-sm-6 col-lg-4 text-center item mb-4">
+                                <a href="{{ route('shopsingle', ['id' => $product->id]) }}">
+                                    <img class="productsallpublished" src="{{ asset($product->img) }}"
+                                        alt="{{ $product->title }}">
+                                </a>
+                                <p class="price">
+                                    {{ $product->category->title ?? "Don't have" }}
+                                </p>
+                                <h3 class="text-dark">
+                                    <a href="#">{{ $product->title }}</a>
+                                </h3>
+                                <p class="price">
+                                    {{ $product->price }}$
+                                </p>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+
                 <div class="row mt-5">
                     <div class="col-md-12 text-center">
                         <div class="site-block-27">

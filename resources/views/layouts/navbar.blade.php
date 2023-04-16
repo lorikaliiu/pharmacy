@@ -1,4 +1,4 @@
-<div class="site-navbar py-2" style="position:fixed;" id="closenav">
+<div class="site-navbar py-2" id="closenav">
     <div class="search-wrap">
         <div class="container">
             <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>

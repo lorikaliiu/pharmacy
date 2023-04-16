@@ -2,65 +2,110 @@
 <html lang="en">
 
 <head>
-  <title>Apotheke Frutigen</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
-
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
-  <link rel="stylesheet" href="css/jquery-ui.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-
-  <link rel="stylesheet" href="css/aos.css">
-
-  <link rel="stylesheet" href="css/style.css">
-
+    <title>Apotheke Frutigen</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-
-  <div class="site-wrap">
-
-
+  <style>
+    .site-section {
+  margin: 50px 0;
+}
+.bg-light {
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+.card-img-top {
+  max-height: 300px;
+  object-fit: cover;
+}
+.news-img {
+    max-height: 200px;
+    object-fit: cover;
+}
+  </style>
     @include('layouts.navbar')
-
-    <div class="container">
-      <div class="row">
-          <div class="col-md-12">
-              <div class="card">
-                @foreach ($news as $item)
-                  <div class="card-header">
-                      {{ $item->title }}
+    <div class="site-wrap">
+        <div class="site-section">
+            <div class="bg-light py-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 mb-0"><a href="{{ route('home') }}">Home</a> <span
+                                class="mx-2 mb-0">/</span> <strong class="text-black">Nachricht</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      @foreach ($news as $item)
+                      <div class="card" style="max-width: 200px;">
+                          <img src="{{ asset($item->img) }}" class="card-img-top" alt="{{ $item->title }}" style="max-width: 200px;">
+                          <div class="card-body">
+                              <h5 class="card-title">{{ $item->title }}</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">By {{ $item->author }}</h6>
+                              <p class="card-text">{{ $item->content }}.</p>
+                              <a href="{{ $item->link }}" class="card-link">Read More</a>
+                          </div>
+                      </div>
+                      @endforeach
                   </div>
-                  <div class="card-body">
-                      <img src="{{ asset($item->image) }}" class="img-fluid mb-3" alt="{{ $item->title }}">
-                      <p class="card-text">{{ $item->content }}</p>
-                      <p class="card-text"><small class="text-muted">Written by {{ $item->author }}</small></p>
-                  </div>
-                  @endforeach
               </div>
           </div>
-      </div>
-  </div>
+          
+            
+        </div>
 
+        <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_2.jpg');">
+            <div class="container">
+                <div class="row align-items-stretch">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <a href="#" class="banner-1 h-100 d-flex"
+                            style="background-image: url('images/bg_1.jpg');">
+                            <div class="banner-1-inner align-self-center">
+                                <h2>Pharma pr</h2>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem
+                                    odio voluptatem.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <a href="#" class="banner-1 h-100 d-flex"
+                            style="background-image: url('images/bg_2.jpg');">
+                            <div class="banner-1-inner ml-auto  align-self-center">
+                                <h2>Rated by Experts</h2>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem
+                                    odio voluptatem.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @include('layouts.footer')
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
 
-    @include('layouts.footer')
-  </div>
-
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 
