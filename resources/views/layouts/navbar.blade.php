@@ -38,6 +38,7 @@
                             </ul>
                           </li>
                           
+                        <li><a href="{{ route('news') }}">Nachricht</a></li>
                         <li><a href="{{ route('about') }}">Über uns</a></li>
                         <li><a href="{{ route('contact') }}">Kontakt</a></li>
                         <li>

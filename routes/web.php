@@ -6,6 +6,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopSingleController;
 use App\Http\Controllers\Admin\AdminController;
@@ -31,6 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::get('/home',[IndexController::class ,'indexview'])->name('home');
+Route::get('/shop',[ShopController::class ,'shopview'])->name('shop');
+Route::get('/Nachricht',[NewsController::class ,'news'])->name('news');
+Route::post('/createNews',[NewsController::class ,'createNews'])->name('createNews');
 Route::get('/shop',[ShopController::class ,'shopview'])->name('shop');
 Route::get('/about',[AboutController::class ,'aboutview'])->name('about');
 Route::get('/contact',[ContactController::class ,'Contactview'])->name('contact');
