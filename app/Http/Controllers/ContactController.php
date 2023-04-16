@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categories;
 use App\Models\Contact;
+use Illuminate\Support\Facades\DB;
+
 
 class ContactController extends Controller
 {
     public function Contactview(){
-
-        return view('contact');
+        $categories = Categories::join('product', 'categories.id', '=', 'product.cat_id')
+        ->select('categories.id', DB::raw('MAX(categories.title) as title'))
+        ->groupBy('categories.id')
+        ->get();
+        return view('contact',compact('categories'));
     }
     public function contact(Request $request)
     {

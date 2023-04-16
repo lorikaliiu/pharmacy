@@ -51,7 +51,7 @@
 
         <div class="site-section">
             <div class="container">
-
+{{-- 
                 <div class="row" style="align-items: center">
                     <div class="col-lg-6">
                         <form action="{{ route('shop') }}" method="get">
@@ -65,19 +65,54 @@
                         <button type="submit" class="btn btn-secondary btn-md  px-4">Suchen</button>
                     </div>
                     </form>
+                </div> --}}
+                @php
+                $parameters = request()->input('cat_id');
+            @endphp
+            
+            @if ($parameters)
+                <div class="row">
+                    @foreach ($products->where('cat_id', $parameters) as $product)
+                        <div class="col-sm-6 col-lg-4 text-center item mb-4">
+                            <a href="{{ route('shopsingle', ['id' => $product->id]) }}">
+                                <img class="productsallpublished" src="{{ asset($product->img) }}" alt="{{ $product->title }}">
+                            </a>
+                            <p class="price">
+                                {{ $product->category->title ?? "Don't have" }}
+                            </p>
+                            <h3 class="text-dark">
+                                <a href="#">{{Ucfirst( $product->title) }}</a>
+                            </h3>
+                            <p class="price">
+                                {{ $product->price }}$
+                            </p>
+                            <div>
+                                <a class="feedbackshowmore" href="{{ route('shopsingle', ['id' => $product->id]) }}">Zeig mehr</a>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
+            @else
                 <div class="row">
                     @foreach ($products as $product)
                         <div class="col-sm-6 col-lg-4 text-center item mb-4">
-                            <a><img class="productsallpublished" src="{{ asset($product->img) }}"
-                                    alt="{{ $product->title }}"></a>
-                            <h3 class="text-dark"><a href="#">{{ $product->title }}</a></h3>
+                            <a href="{{ route('shopsingle', ['id' => $product->id]) }}">
+                                <img class="productsallpublished" src="{{ asset($product->img) }}" alt="{{ $product->title }}">
+                            </a>
+                            <p class="price">
+                                {{ $product->category->title ?? "Don't have" }}
+                            </p>
+                            <h3 class="text-dark">
+                                <a href="#">{{ $product->title }}</a>
+                            </h3>
                             <p class="price">
                                 {{ $product->price }}$
                             </p>
                         </div>
                     @endforeach
                 </div>
+            @endif
+            
                 <div class="row mt-5">
                     <div class="col-md-12 text-center">
                         <div class="site-block-27">
@@ -119,7 +154,7 @@
 
         @include('layouts.footer')
     </div>
-    <script>
+    {{-- <script>
         $(function() {
             var minPrice = 0; // Minimum price
             var maxPrice = 1000; // Maximum price
@@ -137,7 +172,7 @@
             $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider(
                 "values", 1));
         });
-    </script>
+    </script> --}}
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/popper.min.js"></script>

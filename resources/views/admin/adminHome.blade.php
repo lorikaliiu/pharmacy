@@ -61,12 +61,15 @@
 
                 @include('layouts.adminnavbar')
                 <div class="container">
-                    <div class="row g-0 my-3">
-                        <div class="col-12 col-md-2 offset-md-10">
-                            <button style="margin-right: 20px;" type="button" class="btn btn-info btn-sm"
-                                data-toggle="modal" data-target="#addProductModal">Produkt hinzufügen</button>
+                    <div class="row g-0 my-3 flex-column flex-md-row">
+                        <div class="col-12 col-md-2 mb-3 mb-md-0 mr-md-auto">
+                            <button style="margin-right: 10px;" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#addCategoryModal">Category hinzufügen</button>
+                        </div>
+                        <div class="col-12 col-md-2 offset-md-8">
+                            <button style="margin-left: 10px;" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#addProductModal">Produkt hinzufügen</button>
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-12">
                             <div class="table-responsive">
@@ -75,6 +78,7 @@
                                         <tr>
                                             <th scope="col">Produktname</th>
                                             <th scope="col">Produktbild</th>
+                                            <th scope="col">Category</th>
                                             <th scope="col">Preis</th>
                                             <th scope="col">Detail</th>
                                             <th scope="col">Aktion</th>
@@ -89,8 +93,10 @@
                                                         class="img-fluid img-thumbnail" alt="Sheep"
                                                         style="height:150px; width:100px;">
                                                 </td>
+                                                <td>{{ $product->category->title ?? "Don't have" }}</td>
                                                 <td>{{ $product->price }}</td>
-                                                <td>{{ $product->detail }}</td>
+                                                <td>{{ strlen($product->detail) > 50 ? substr($product->detail, 0, 50) . '...' : $product->detail }}
+                                                </td>
                                                 <td style="display: flex">
                                                     <button style="margin-right: 20px;" type="button"
                                                         class="btn btn-info btn-sm" data-toggle="modal"
@@ -124,7 +130,50 @@
                         </div>
                     </div>
                 </div>
+                <!-- Modal Add Category-->
+                <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog"
+                    aria-labelledby="addCategoryModal" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addCategoryModal">Category hinzufügen</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                @if (Illuminate\Support\Facades\Session::has('success'))
+                                    <div class="alert alert-success">
+                                        {{ Illuminate\Support\Facades\Session::get('success') }}</div>
+                                @endif
 
+                                <form method="POST" action="{{ route('addCategory') }}" class="user"
+                                    enctype="multipart/form-data">
+                                    @csrf
+
+                                    <div class="form-group">
+                                        <label for="title" class="col-form-label">Categoryname<span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="titleCategory"
+                                            name="titleCategory" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="detail" class="col-form-label">Detail</label>
+                                        <textarea name="detailCategory" id="detailCategory" cols="30" rows="5" class="form-control" required></textarea>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Schließen</button>
+                                        <button type="submit" class="btn btn-primary">Category hinzufügen</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Modal Add Product-->
                 <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog"
                     aria-labelledby="addProductModalLabel" aria-hidden="true">
@@ -152,7 +201,16 @@
                                         <input type="text" class="form-control" id="title" name="title"
                                             required>
                                     </div>
-
+                                    <tr>
+                                        <th>Category<span class="text-danger">*</span></th>
+                                        <td>
+                                            <select class="form-control" name="category" required>
+                                                @foreach ($category as $cat)
+                                                    <option value="{{ $cat->id }}">{{ $cat->title }}</option>
+                                                @endforeach
+                                            </select>
+                                        </td>
+                                    </tr>
                                     <div class="form-group">
                                         <label for="price" class="col-form-label">Preis<span
                                                 class="text-danger">*</span></label>
@@ -184,58 +242,54 @@
                 </div>
                 <!-- Modal  Update-->
                 @foreach ($products as $product)
-                    <div class="modal fade" id="updateModal{{ $product->id }}" tabindex="-1" role="dialog"
-                        aria-labelledby="updateModal{{ $product->id }}Label" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <form id="updateForm{{ $product->id }}"
-                                    action="{{ route('updateProduct', ['id' => $product->id]) }}" method="POST"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="updateModal{{ $product->id }}Label">Produkt
-                                            aktualisieren
-                                        </h5>
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                <div class="modal fade" id="updateModal{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="updateModal{{ $product->id }}Label" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <form id="updateForm{{ $product->id }}" action="{{ route('updateProduct', ['id' => $product->id]) }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="updateModal{{ $product->id }}Label">Produkt aktualisieren</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="title">Produktname</label>
+                                        <input type="text" name="title" id="title{{ $product->id }}" class="form-control" value="{{ old('title', $product->title) }}" required>
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label for="title">Produktname</label>
-                                            <input type="text" name="title" id="title{{ $product->id }}"
-                                                class="form-control" value="{{ old('title', $product->title) }}"
-                                                required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="price">Preis</label>
-                                            <input type="number" name="price" id="price{{ $product->id }}"
-                                                class="form-control" value="{{ old('price', $product->price) }}"
-                                                min="0" step="0.01" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="img">Produktbild</label>
-                                            <input type="file" name="img" id="img{{ $product->id }}"
-                                                class="form-control-file">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="detail">Detail</label>
-                                            <textarea name="detail" id="detail{{ $product->id }}" class="form-control" required>{{ old('detail', $product->detail) }}</textarea>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="price">Preis</label>
+                                        <input type="number" name="price" id="price{{ $product->id }}" class="form-control" value="{{ old('price', $product->price) }}" min="0" step="0.01" required>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Schließen</button>
-                                        <button type="submit" class="btn btn-primary update-btn">Produkt
-                                            aktualisieren</button>
+                                    <div class="form-group">
+                                        <label for="img">Produktbild</label>
+                                        <input type="file" name="img" id="img{{ $product->id }}" class="form-control-file">
                                     </div>
-                                </form>
-                            </div>
+                                    <div class="form-group">
+                                        <label for="detail">Detail</label>
+                                        <textarea name="detail" id="detail{{ $product->id }}" class="form-control" required>{{ old('detail', $product->detail) }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="category">Kategorie</label>
+                                        <select class="form-control" name="category">
+                                            @foreach ($category as $cat)
+                                                <option value="{{ $cat->id }}" {{ $product->cat_id == $cat->id ? 'selected' : '' }}>{{ $cat->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                                    <button type="submit" class="btn btn-primary update-btn">Produkt aktualisieren</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                @endforeach
+                </div>
+            @endforeach
+            
                 <!-- Logout Modal-->
                 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">

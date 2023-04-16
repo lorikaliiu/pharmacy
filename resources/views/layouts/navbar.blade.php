@@ -19,26 +19,25 @@
             <div class="main-nav d-none d-lg-block">
                 <nav class="site-navigation text-right text-md-center" role="navigation">
                     <ul class="site-menu js-clone-nav d-none d-lg-block">
-                        <li class="active"><a href="{{ route('home') }}">Heim</a></li>
-                        <li><a href="{{ route('shop') }}">Store</a></li>
+                        <li class="active"><a href="{{ route('home') }}">Home</a></li>
+                        {{-- <li><a href="{{ route('shop') }}">Store</a></li> --}}
                         <li class="has-children">
-                            <a href="#">Ergänzungen</a>
+                            <a href="#">Produkte</a>
                             <ul class="dropdown">
-                                <li><a href="#">Ergänzungen</a></li>
+                              <li><a href="{{ route('shop') }}">Alle Produkte</a></li>
+                              @foreach ($categories as $category)
                                 <li class="has-children">
-                                    <a href="#">Vitamins</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Ergänzungen</a></li>
-                                        <li><a href="#">Vitamins</a></li>
-                                        <li><a href="#">Diet &amp; Nutrition</a></li>
-                                        <li><a href="#">Tea &amp; Coffee</a></li>
-                                    </ul>
+                                  <a href="{{ route('shop', ['cat_id' => $category->id]) }}">{{ Ucfirst($category->title) }}</a>
+                                  <ul class="dropdown">
+                                    @foreach ($category->products as $product)
+                                      <li><a href="{{ route('shopsingle', ['id' => $product->id]) }}">{{ Ucfirst($product->title) }}</a></li>
+                                    @endforeach
+                                  </ul>
                                 </li>
-                                <li><a href="#">Diet &amp; Nutrition</a></li>
-                                <li><a href="#">Tea &amp; Coffee</a></li>
-
+                              @endforeach
                             </ul>
-                        </li>
+                          </li>
+                          
                         <li><a href="{{ route('about') }}">Über uns</a></li>
                         <li><a href="{{ route('contact') }}">Kontakt</a></li>
                         <li>

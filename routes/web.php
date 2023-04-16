@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopSingleController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 
 /*
@@ -37,9 +38,11 @@ Route::post('/Contact',[ContactController::class ,'Contact'])->name('Contact');
 Route::get('/cart',[CartController::class ,'cartview'])->name('cart');
 Route::get('/shopsingle', [ShopSingleController::class, 'shopsingleview'])->name('shopsingle');
 Route::post('/addProductsAdmin',[ProductController::class ,'addProduct'])->name('addproduct');
+Route::post('/addCategory',[CategoryController::class ,'addCategory'])->name('addCategory');
 Route::put('/updateProduct/{id}',[ProductController::class ,'updateProduct'])->name('updateProduct');
 Route::delete('/delete/{id}',[ProductController::class ,'destroy'])->name('delete');
 Route::get('/ProductsAdmin11',[ProductController::class ,'Product'])->name('ProductsAdmin');
+
 
 
 require __DIR__.'/auth.php';

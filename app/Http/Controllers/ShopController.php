@@ -4,35 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\Categories;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ShopController extends Controller
 {
 
     public function shopview(Request $request)
 {
+    $id = $request->query('cat_id');
     $query = $request->input('query');
-    $priceQuery = $request->input('price_query');
-
-    $products = Product::query();
-
-    // filter by title search query
-    if ($query) {
-        $products->where('title', 'like', "%$query%");
-    }
-
-    // filter by price range query
-    if ($priceQuery) {
-        $priceRange = explode(' - ', str_replace('$', '', $priceQuery));
-        if (count($priceRange) == 2) {
-            $minPrice = (int) $priceRange[0];
-            $maxPrice = (int) $priceRange[1];
-            $products->where('price', '>=', $minPrice)->where('price', '<=', $maxPrice);
-        }
-    }
-
-    $products = $products->paginate(10);
-    return view('shop', compact('products', 'query', 'priceQuery'));
+    $products = Product::orderBy('title')->where('title', 'like', "%$query%")
+                            ->paginate(10);
+    $categories = Categories::join('product', 'categories.id', '=', 'product.cat_id')
+    ->select('categories.id', DB::raw('MAX(categories.title) as title'))
+    ->groupBy('categories.id')
+    ->get();
+    return view('shop', compact('products', 'query','categories'));
 }
 
 

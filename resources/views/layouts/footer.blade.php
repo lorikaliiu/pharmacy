@@ -19,10 +19,10 @@
         <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
           <h3 class="footer-heading mb-4">Schnelle Links</h3>
           <ul class="list-unstyled">
-            <li><a href="#">Supplements</a></li>
-            <li><a href="#">Vitamins</a></li>
-            <li><a href="#">Diet &amp; Nutrition</a></li>
-            <li><a href="#">Tea &amp; Coffee</a></li>
+            <li><a href="{{ route('shop') }}">Alle Produkte</a></li>
+            @foreach ($categories as $category)
+            <li> <a href="{{ route('shop', ['cat_id' => $category->id]) }}">{{ Ucfirst($category->title) }}</a></li>
+            @endforeach
           </ul>
         </div>
 
