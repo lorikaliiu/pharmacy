@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\News;
 use App\Models\Categories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +16,7 @@ class IndexController extends Controller
                     ->select('categories.id', DB::raw('MAX(categories.title) as title'))
                     ->groupBy('categories.id')
                     ->get();
-
-        return view('index',compact('products','categories'));
+        $news = News::paginate(2);
+        return view('index',compact('products','categories','news'));
     }
 }

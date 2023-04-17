@@ -17,23 +17,31 @@
 </head>
 
 <body>
-  <style>
-    .site-section {
-  margin: 50px 0;
-}
-.bg-light {
-  padding: 10px 0;
-  margin-bottom: 20px;
-}
-.card-img-top {
-  max-height: 300px;
-  object-fit: cover;
-}
-.news-img {
-    max-height: 200px;
-    object-fit: cover;
-}
-  </style>
+    <style>
+        .site-section {
+            margin: 50px 0;
+        }
+
+        .bg-light {
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+
+        .card-img-top {
+            max-height: 300px;
+            object-fit: cover;
+        }
+
+        .news-img {
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .news-image {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
     @include('layouts.navbar')
     <div class="site-wrap">
         <div class="site-section">
@@ -47,24 +55,85 @@
                 </div>
             </div>
             <div class="container">
-              <div class="row">
-                  <div class="col-md-12">
-                      @foreach ($news as $item)
-                      <div class="card" style="max-width: 200px;">
-                          <img src="{{ asset($item->img) }}" class="card-img-top" alt="{{ $item->title }}" style="max-width: 200px;">
-                          <div class="card-body">
-                              <h5 class="card-title">{{ $item->title }}</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">By {{ $item->author }}</h6>
-                              <p class="card-text">{{ $item->content }}.</p>
-                              <a href="{{ $item->link }}" class="card-link">Read More</a>
-                          </div>
-                      </div>
-                      @endforeach
-                  </div>
-              </div>
-          </div>
-          
-            
+                <div>
+                    <div>
+                        <div>
+                            <h1>{{ $title_latest }}</h1>
+                        </div>
+                        <div class="row g-0">
+                            <div class="col-md-7">
+                                <div>
+                                    <img src="{{ asset($img_latest) }}" alt="{{ $title_latest }}" style="width:100%;">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <h4 class="footer-heading mb-2">Kontaktinformation</h4>
+                                <ul class="list-unstyled">
+                                    <li class="address">Apotheke Frutigen
+                                        Musaab Kassam
+                                        Obere Bahnhofstrasse 5
+                                        3714 Frutigen</li>
+                                    <li class="phone">Telefon : +41 33 671 12 65</li>
+                                    <li class="phone">Fax : +41 33 535 41 51</li>
+                                    <li class="email"> info@apotheke-frutigen.ch</li>
+                                </ul>
+                                <hr>
+                                <h4 class="footer-heading mb-2">Öffnungszeiten:</h4>
+                                <ul>
+                                    <li>Montag: 08:30–12:00 / 13:30–18:00</li>
+                                    <li>Dienstag: 08:30–12:00 / 13:30–18:00</li>
+                                    <li>Mittwoch: 08:30–12:00</li>
+                                    <li>Donnerstag: 08:30–12:00 / 13:30–18:00</li>
+                                    <li>Freitag: 08:30–12:00 / 13:30–18:00</li>
+                                    <li>Samstag: 08:30–14:00</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <h2>{{ $title_latest }}</h2>
+                            </div>
+                            <div>
+                                <p>{{ $content_latest }}.</p>
+                            </div>
+                            <div>
+                                <a href="{{ $link_latest }}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <hr style="border-top: 3px solid black">
+                </div>
+                <div>
+                    <div>
+                        <div class="row g-0">
+                            @foreach ($news as $item)
+                                <div class="col-md-4 text-center">
+                                    <div class="p-4">
+                                        <div>
+                                            <img src="{{ asset($item->img) }}" alt="{{ $item->title }}"
+                                                class="news-image">
+                                        </div>
+                                        <div>
+                                            <h4>{{ $item->title }}</h4>
+                                        </div>
+                                        <div>
+                                            <p style="font-size: 13px">
+                                                {{ strlen($item->content) > 100 ? substr($item->content, 0, 100) . '...' : $item->content }}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <a href="{{ $item->link }}">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_2.jpg');">

@@ -130,47 +130,36 @@
                 </div>
             </div>
         </div>
-
-        {{-- <div class="site-section bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="title-section text-center col-12">
-            <h2 class="text-uppercase">New Products</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 block-3 products-wrap">
-            <div class="nonloop-block-3 owl-carousel">
-
-              <div class="text-center item mb-4">
-                <a href="{{route('shopsingle')}}"> <img src="images/product_03.png" alt="Image"></a>
-                <h3 class="text-dark"><a href="{{route('shopsingle')}}">Umcka Cold Care</a></h3>
-                <p class="price">$120.00</p>
-              </div>
-
-              <div class="text-center item mb-4">
-                <a href="{{route('shopsingle')}}"> <img src="images/product_01.png" alt="Image"></a>
-                <h3 class="text-dark"><a href="{{route('shopsingle')}}">Umcka Cold Care</a></h3>
-                <p class="price">$120.00</p>
-              </div>
-
-              <div class="text-center item mb-4">
-                <a href="{{route('shopsingle')}}"> <img src="images/product_02.png" alt="Image"></a>
-                <h3 class="text-dark"><a href="{{route('shopsingle')}}">Umcka Cold Care</a></h3>
-                <p class="price">$120.00</p>
-              </div>
-
-              <div class="text-center item mb-4">
-                <a href="{{route('shopsingle')}}"> <img src="images/product_04.png" alt="Image"></a>
-                <h3 class="text-dark"><a href="{{route('shopsingle')}}">Umcka Cold Care</a></h3>
-                <p class="price">$120.00</p>
-              </div>
-
+        {{-- <div>
+            <div>
+                <div class="row g-0">
+                    @foreach ($news as $item)
+                    <div class="col-md-4 text-center">
+                        <div class="p-4">
+                            <div>
+                                <img src="{{ asset($item->img) }}"
+                                alt="{{ $item->title }}" style="width:100%;">
+                            </div>
+                            <div>
+                                <h4>{{ $item->title }}</h4>
+                            </div>
+                            <div>
+                                <p style="font-size: 13px">
+                                    {{ strlen( $item->content) > 100 ? substr( $item->content, 0, 100) . '...' :  $item->content }}</p>
+                            </div>
+                            <div class="">
+                                <span style="color:black;">{{ $item->author }}</span>
+                            </div>
+                            <div>
+                                <a href="{{ route('news', ['id' => $item->id]) }}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div> --}}
+        </div> --}}
+
 
         <div class="site-section">
             <div class="container">
@@ -247,28 +236,18 @@
         <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_2.jpg');">
             <div class="container">
                 <div class="row align-items-stretch">
+                    @foreach ($news as $item)
                     <div class="col-lg-6 mb-5 mb-lg-0">
-                        <a href="#" class="banner-1 h-100 d-flex"
-                            style="background-image: url('images/bg_1.jpg');">
+                        <a href="{{ route('news', ['id' => $item->id]) }}" class="banner-1 h-100 d-flex"
+                            style="background-image: url('{{ asset($item->img) }}');">
                             <div class="banner-1-inner align-self-center">
-                                <h2>Pharma Products</h2>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem
-                                    odio voluptatem.
-                                </p>
+                                <h4>{{ $item->title }}</h4>
+                                <p style="font-size: 13px">
+                                    {{ strlen( $item->content) > 100 ? substr( $item->content, 0, 100) . '...' :  $item->content }}</p>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-6 mb-5 mb-lg-0">
-                        <a href="#" class="banner-1 h-100 d-flex"
-                            style="background-image: url('images/bg_2.jpg');">
-                            <div class="banner-1-inner ml-auto  align-self-center">
-                                <h2>Rated by Experts</h2>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem
-                                    odio voluptatem.
-                                </p>
-                            </div>
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -60,76 +60,80 @@
             <div id="content" style="background-color: #fff!important;">
 
                 @include('layouts.adminnavbar')
-                <div class="container">
-                    <div class="row g-0 my-3 flex-column flex-md-row">
-                        <div class="col-12 col-md-2 mb-3 mb-md-0 mr-md-auto">
+                <div class="px-5">
+                    <div class="row g-0 my-3 ">
+                        <div class="col-md-6 d-flex justify-content-start">
                             <button style="margin-right: 10px;" type="button" class="btn btn-info btn-sm"
                                 data-toggle="modal" data-target="#addCategoryModal">Category hinzufügen</button>
                         </div>
-                        <div class="col-12 col-md-2 offset-md-8">
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                       <div class="col-md-6 d-flex justify-content-end">
+                        <div >
+                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                 data-target="#addNewsModal">
                                 Add News
                             </button>
                         </div>
+                        <div class=" ">
+                            <button style="margin-left: 10px;" type="button" class="btn btn-info btn-sm"
+                                data-toggle="modal" data-target="#addProductModal">Produkt hinzufügen</button>
+                        </div>
+                       </div>
                     </div>
-                    <div class="col-12 col-md-2 offset-md-8">
-                        <button style="margin-left: 10px;" type="button" class="btn btn-info btn-sm"
-                            data-toggle="modal" data-target="#addProductModal">Produkt hinzufügen</button>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table table-image">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Produktname</th>
+                                            <th scope="col">Produktbild</th>
+                                            <th scope="col">Category</th>
+                                            <th scope="col">Preis</th>
+                                            <th scope="col">Detail</th>
+                                            <th scope="col">Aktion</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($products as $product)
+                                            <tr>
+                                                <th scope="row">{{ $product->title }}</th>
+                                                <td class="w-25">
+                                                    <img src="{{ asset($product->img) }}" class="img-fluid img-thumbnail"
+                                                        alt="Sheep" style="height:150px; width:100px;">
+                                                </td>
+                                                <td>{{ $product->category->title ?? "Don't have" }}</td>
+                                                <td>{{ $product->price }}</td>
+                                                <td>{{ strlen($product->detail) > 50 ? substr($product->detail, 0, 50) . '...' : $product->detail }}
+                                                </td>
+                                                <td style="display: flex">
+                                                    <button style="margin-right: 20px;" type="button"
+                                                        class="btn btn-info btn-sm" data-toggle="modal"
+                                                        data-target="#updateModal{{ $product->id }}">Aktualisieren</button>
+                                                    <form method="POST"
+                                                        action="{{ route('delete', ['id' => $product->id]) }}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                            onclick="return confirm('Are you sure you want to delete?')"
+                                                            class="btn btn-danger btn-sm">Löschen</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            @if (Illuminate\Support\Facades\Session::has('success'))
+                                <span style="color:green">
+                                    {{ Illuminate\Support\Facades\Session::get('success') }}
+                                </span>
+                            @endif
+                        </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="table-responsive">
-                            <table class="table table-image">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Produktname</th>
-                                        <th scope="col">Produktbild</th>
-                                        <th scope="col">Category</th>
-                                        <th scope="col">Preis</th>
-                                        <th scope="col">Detail</th>
-                                        <th scope="col">Aktion</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($products as $product)
-                                        <tr>
-                                            <th scope="row">{{ $product->title }}</th>
-                                            <td class="w-25">
-                                                <img src="{{ asset($product->img) }}" class="img-fluid img-thumbnail"
-                                                    alt="Sheep" style="height:150px; width:100px;">
-                                            </td>
-                                            <td>{{ $product->category->title ?? "Don't have" }}</td>
-                                            <td>{{ $product->price }}</td>
-                                            <td>{{ strlen($product->detail) > 50 ? substr($product->detail, 0, 50) . '...' : $product->detail }}
-                                            </td>
-                                            <td style="display: flex">
-                                                <button style="margin-right: 20px;" type="button"
-                                                    class="btn btn-info btn-sm" data-toggle="modal"
-                                                    data-target="#updateModal{{ $product->id }}">Aktualisieren</button>
-                                                <form method="POST"
-                                                    action="{{ route('delete', ['id' => $product->id]) }}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit"
-                                                        onclick="return confirm('Are you sure you want to delete?')"
-                                                        class="btn btn-danger btn-sm">Löschen</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        @if (Illuminate\Support\Facades\Session::has('success'))
-                            <span style="color:green">
-                                {{ Illuminate\Support\Facades\Session::get('success') }}
-                            </span>
-                        @endif
-                    </div>
-                </div>
+
             </div>
             <div class="row mt-5">
                 <div class="col-md-12 text-center">
@@ -163,11 +167,6 @@
                                 <div class="form-group">
                                     <label for="category">Category</label>
                                     <input type="text" class="form-control" id="category" name="category"
-                                        required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="author">Author</label>
-                                    <input type="text" class="form-control" id="author" name="author"
                                         required>
                                 </div>
                                 <div class="form-group">
