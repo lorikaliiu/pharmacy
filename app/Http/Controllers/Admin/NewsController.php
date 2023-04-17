@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Categories;
 use App\Models\News;
+use App\Models\Product;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -21,12 +22,13 @@ class NewsController extends Controller
         } else {
             echo "Dont have news .";
         }
+        $products = Product::orderBy('title')->paginate(2);
         $news = News::paginate(3);
         $categories = Categories::join('product', 'categories.id', '=', 'product.cat_id')
             ->select('categories.id', DB::raw('MAX(categories.title) as title'))
             ->groupBy('categories.id')
             ->get();
-        return view('news', compact('categories', 'news', 'latest_news','title_latest','img_latest','content_latest','link_latest',));
+        return view('news', compact('categories', 'news', 'latest_news','title_latest','img_latest','content_latest','link_latest','products'));
     }
     public function createNews(Request $request)
     {

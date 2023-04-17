@@ -48,6 +48,7 @@
                     </div>
                     <div class="col-md-6">
                         <h2 class="text-black">{{ Ucfirst($title) }}</h2>
+                        <h2 class="text-black">{{ Ucfirst($title) }}</h2>
                         <p>{{ $detail }}.</p>
                         <p><strong class="text-primary h4"> {{ $price }}$</strong></p>
                     </div>
@@ -55,31 +56,22 @@
             </div>
         </div>
 
-        <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_2.jpg');">
+        <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_3.jpg');">
             <div class="container">
                 <div class="row align-items-stretch">
-                    <div class="col-lg-6 mb-5 mb-lg-0">
-                        <a href="#" class="banner-1 h-100 d-flex"
-                            style="background-image: url('images/bg_1.jpg');">
-                            <div class="banner-1-inner align-self-center">
-                                <h2>Pharma pr</h2>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem
-                                    odio voluptatem.
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6 mb-5 mb-lg-0">
-                        <a href="#" class="banner-1 h-100 d-flex"
-                            style="background-image: url('images/bg_2.jpg');">
-                            <div class="banner-1-inner ml-auto  align-self-center">
-                                <h2>Rated by Experts</h2>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem
-                                    odio voluptatem.
-                                </p>
-                            </div>
-                        </a>
-                    </div>
+                    @foreach ($news as $item)
+                        <div class="col-lg-6 mb-5 mb-lg-0">
+                            <a href="{{ route('news', ['id' => $item->id]) }}" class="banner-1 h-100 d-flex"
+                                style="background-image: url('{{ asset($item->img) }}');">
+                                <div class="banner-1-inner align-self-center">
+                                    <h4>{{ $item->title }}</h4>
+                                    {{-- <p style="font-size: 13px">
+                                        {{ strlen($item->content) > 100 ? substr($item->content, 0, 100) . '...' : $item->content }}
+                                    </p> --}}
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

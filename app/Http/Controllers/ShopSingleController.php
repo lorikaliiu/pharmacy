@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Models\Categories;
@@ -31,7 +32,8 @@ class ShopSingleController extends Controller
         ->select('categories.id', DB::raw('MAX(categories.title) as title'))
         ->groupBy('categories.id')
         ->get();
-        return view('shop-single', compact('categories','title','img','price','detail'));
+        $news = News::paginate(2);
+        return view('shop-single', compact('categories','title','img','price','detail','news'));
     }
     
     

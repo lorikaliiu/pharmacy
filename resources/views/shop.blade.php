@@ -69,14 +69,15 @@
                                         alt="{{ $product->title }}">
                                 </a>
                                 <p class="price">
-                                    {{ $product->category->title ?? "Don't have" }}
+                                    Category: {{ $product->category->title ?? "Don't have" }}
                                 </p>
                                 <h3 class="text-dark">
                                     <a href="#">{{ Ucfirst($product->title) }}</a>
                                 </h3>
                                 <p class="price">
-                                    {{ $product->price }}$
+                                    Price: {{ $product->price }}$
                                 </p>
+                                <p>{{ strlen( $product->detail) > 100 ? substr( $product->detail, 0, 100) . '...' :  $product->detail }}</p>
                                 <div>
                                     <a class="feedbackshowmore"
                                         href="{{ route('shopsingle', ['id' => $product->id]) }}">Zeig mehr</a>
@@ -93,14 +94,19 @@
                                         alt="{{ $product->title }}">
                                 </a>
                                 <p class="price">
-                                    {{ $product->category->title ?? "Don't have" }}
+                                    Category: {{ $product->category->title ?? "Don't have" }}
                                 </p>
                                 <h3 class="text-dark">
-                                    <a href="#">{{ $product->title }}</a>
+                                    <a href="#">{{ Ucfirst($product->title) }}</a>
                                 </h3>
                                 <p class="price">
-                                    {{ $product->price }}$
+                                    Price: {{ $product->price }}$
                                 </p>
+                                <p>{{ strlen( $product->detail) > 100 ? substr( $product->detail, 0, 100) . '...' :  $product->detail }}</p>
+                                <div>
+                                    <a class="feedbackshowmore"
+                                        href="{{ route('shopsingle', ['id' => $product->id]) }}">Zeig mehr</a>
+                                </div>
                             </div>
                         @endforeach
                     </div>
@@ -116,31 +122,21 @@
             </div>
         </div>
 
-        <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_2.jpg');">
+        <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_3.jpg');">
             <div class="container">
                 <div class="row align-items-stretch">
+                    @foreach ($news as $item)
                     <div class="col-lg-6 mb-5 mb-lg-0">
-                        <a href="#" class="banner-1 h-100 d-flex"
-                            style="background-image: url('images/bg_1.jpg');">
+                        <a href="{{ route('news', ['id' => $item->id]) }}" class="banner-1 h-100 d-flex"
+                            style="background-image: url('{{ asset($item->img) }}');">
                             <div class="banner-1-inner align-self-center">
-                                <h2>Pharma Products</h2>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem
-                                    odio voluptatem.
-                                </p>
+                                <h4>{{ $item->title }}</h4>
+                                <p style="font-size: 13px">
+                                    {{ strlen( $item->content) > 100 ? substr( $item->content, 0, 100) . '...' :  $item->content }}</p>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-6 mb-5 mb-lg-0">
-                        <a href="#" class="banner-1 h-100 d-flex"
-                            style="background-image: url('images/bg_2.jpg');">
-                            <div class="banner-1-inner ml-auto  align-self-center">
-                                <h2>Rated by Experts</h2>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem
-                                    odio voluptatem.
-                                </p>
-                            </div>
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

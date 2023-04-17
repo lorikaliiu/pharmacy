@@ -28,6 +28,52 @@
             color: #00a79d;
             font-weight: bold;
         }
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            opacity: 0;
+            animation: appear 1s ease-in-out forwards;
+        }
+
+        .buttons-container p {
+            margin: 0 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .buttons-container p {
+                margin: 10px 0;
+            }
+        }
+
+        @keyframes appear {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .buttons-container p:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .buttons-container p:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .buttons-container p:nth-child(3) {
+            animation-delay: 0.6s;
+        }
     </style>
     <div class="site-wrap">
 
@@ -40,14 +86,25 @@
                         <div class="site-block-cover-content text-center">
                             <h2 class="sub-title">Wirksame Medizin, täglich neue Medizin</h2>
                             <h1>Willkommen zu Apotheke Frutigen</h1>
-                            <p>
-                                <a href="{{ route('shop') }}" class="btn btn-primary px-5 py-3">Produkte</a>
-                            </p>
+                            <div class="buttons-container">
+                                <p>
+                                    <a href="{{ route('shop') }}" class="btn btn-primary px-5 py-3">Produkte</a>
+                                </p>
+                                <p>
+                                    <a href="{{ route('news') }}" class="btn btn-primary px-5 py-3">Sie möchten
+                                        Neuigkeiten lesen</a>
+                                </p>
+                                <p>
+                                    <a href="{{ route('contact') }}" class="btn btn-primary px-5 py-3">Kontaktiere
+                                        uns</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <div class="site-section">
             <div class="container">
@@ -117,7 +174,8 @@
                             </p>
                             <div>
                                 <a class="feedbackshowmore"
-                                    href="{{ route('shopsingle', ['id' => $product->id]) }}">Zeig mehr</a>
+                                    href="{{ route('shopsingle', ['id' => $product->id]) }}">Zeig
+                                    mehr</a>
                             </div>
                         </div>
                     @endforeach
@@ -233,20 +291,21 @@
             </div>
         </div>
 
-        <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_2.jpg');">
+        <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_3.jpg');">
             <div class="container">
                 <div class="row align-items-stretch">
                     @foreach ($news as $item)
-                    <div class="col-lg-6 mb-5 mb-lg-0">
-                        <a href="{{ route('news', ['id' => $item->id]) }}" class="banner-1 h-100 d-flex"
-                            style="background-image: url('{{ asset($item->img) }}');">
-                            <div class="banner-1-inner align-self-center">
-                                <h4>{{ $item->title }}</h4>
-                                <p style="font-size: 13px">
-                                    {{ strlen( $item->content) > 100 ? substr( $item->content, 0, 100) . '...' :  $item->content }}</p>
-                            </div>
-                        </a>
-                    </div>
+                        <div class="col-lg-6 mb-5 mb-lg-0">
+                            <a href="{{ route('news', ['id' => $item->id]) }}" class="banner-1 h-100 d-flex"
+                                style="background-image: url('{{ asset($item->img) }}');">
+                                <div class="banner-1-inner align-self-center">
+                                    <h4>{{ $item->title }}</h4>
+                                    <p style="font-size: 13px">
+                                        {{ strlen($item->content) > 100 ? substr($item->content, 0, 100) . '...' : $item->content }}
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
                     @endforeach
                 </div>
             </div>
