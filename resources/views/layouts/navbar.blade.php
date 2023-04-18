@@ -11,7 +11,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="logo">
                 <div class="site-logo">
-                    <a href="{{ route('home') }}"><img src="{{ asset('images/logo.svg') }}" /></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset('images/logo.svg') }}"/></a>
 
                     <a href="{{ route('home') }}" class="js-logo-clone" style="margin-left: 20px;">Apotheke Frutigen</a>
                 </div>
@@ -37,7 +37,7 @@
                               @endforeach
                             </ul>
                           </li>
-                          
+
                         <li><a href="{{ route('news') }}">Nachricht</a></li>
                         <li><a href="{{ route('about') }}">Über uns</a></li>
                         <li><a href="{{ route('contact') }}">Kontakt</a></li>

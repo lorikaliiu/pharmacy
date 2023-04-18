@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
@@ -74,6 +73,16 @@
         .buttons-container p:nth-child(3) {
             animation-delay: 0.6s;
         }
+
+         .btn-primary  {
+            border-radius: 8px !important;
+            background: #3C486B !important;
+            border-color : #3C486B !important;
+            color:white;
+        }
+        .btn.btn-primary:hover{
+            color:white !important;
+        }
     </style>
     <div class="site-wrap">
 
@@ -82,13 +91,13 @@
         <div class="site-blocks-cover" style="background-image: url('images/hero_1.jpg');">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
+                    <div class="col-lg-10 mx-auto order-lg-2 align-self-center">
                         <div class="site-block-cover-content text-center">
                             <h2 class="sub-title">Wirksame Medizin, täglich neue Medizin</h2>
                             <h1>Willkommen zu Apotheke Frutigen</h1>
                             <div class="buttons-container">
                                 <p>
-                                    <a href="{{ route('shop') }}" class="btn btn-primary px-5 py-3">Produkte</a>
+                                    <a  href="{{ route('shop') }}" class="btn btn-primary px-5 py-3">Produkte</a>
                                 </p>
                                 <p>
                                     <a href="{{ route('news') }}" class="btn btn-primary px-5 py-3">Sie möchten
@@ -104,7 +113,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="site-section">
             <div class="container">
@@ -173,7 +181,7 @@
                                 {{ strlen($product->detail) > 100 ? substr($product->detail, 0, 100) . '...' : $product->detail }}
                             </p>
                             <div>
-                                <a class="feedbackshowmore"
+                                <a style="color:#3C486B"
                                     href="{{ route('shopsingle', ['id' => $product->id]) }}">Zeig
                                     mehr</a>
                             </div>
@@ -188,36 +196,6 @@
                 </div>
             </div>
         </div>
-        {{-- <div>
-            <div>
-                <div class="row g-0">
-                    @foreach ($news as $item)
-                    <div class="col-md-4 text-center">
-                        <div class="p-4">
-                            <div>
-                                <img src="{{ asset($item->img) }}"
-                                alt="{{ $item->title }}" style="width:100%;">
-                            </div>
-                            <div>
-                                <h4>{{ $item->title }}</h4>
-                            </div>
-                            <div>
-                                <p style="font-size: 13px">
-                                    {{ strlen( $item->content) > 100 ? substr( $item->content, 0, 100) . '...' :  $item->content }}</p>
-                            </div>
-                            <div class="">
-                                <span style="color:black;">{{ $item->author }}</span>
-                            </div>
-                            <div>
-                                <a href="{{ route('news', ['id' => $item->id]) }}">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div> --}}
-
 
         <div class="site-section">
             <div class="container">
@@ -299,10 +277,10 @@
                             <a href="{{ route('news', ['id' => $item->id]) }}" class="banner-1 h-100 d-flex"
                                 style="background-image: url('{{ asset($item->img) }}');">
                                 <div class="banner-1-inner align-self-center">
-                                    <h4>{{ $item->title }}</h4>
-                                    <p style="font-size: 13px">
+                                    <h4 style="color:black">{{ $item->title }}</h4>
+                                    {{-- <p style="font-size: 13px">
                                         {{ strlen($item->content) > 100 ? substr($item->content, 0, 100) . '...' : $item->content }}
-                                    </p>
+                                    </p> --}}
                                 </div>
                             </a>
                         </div>
@@ -310,7 +288,6 @@
                 </div>
             </div>
         </div>
-
 
         @include('layouts.footer')
     </div>

@@ -43,6 +43,9 @@
             padding: 10px 0;
             margin-bottom: 20px;
         }
+        .feedbackshowmore{
+           color: #3C486B !important
+        }
     </style>
     @php
         $parameters = request()->input('cat_id');
