@@ -52,7 +52,7 @@
                     <h3 class="footer-heading mb-4">Kontaktinformation</h3>
                     <ul class="list-unstyled">
                         <li class="address">Apotheke Frutigen
-                            Musaab Kassam
+                            Qendrese Isufi-Ramadani
                             Obere Bahnhofstrasse 5
                             3714 Frutigen</li>
                         <li class="phone">Telefon : +41 33 671 12 65</li>

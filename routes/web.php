@@ -24,7 +24,7 @@ use App\Http\Controllers\Admin\ProductController;
 |
 */
 
-Route::get('/', [IndexController::class, 'indexview']);
+Route::get('/home', [IndexController::class, 'indexview']);
 Route::get('/adminhome', [AdminController::class, 'adminhome'])->middleware(['auth', 'verified'])->name('adminhome');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -46,6 +46,7 @@ Route::post('/addCategory',[CategoryController::class ,'addCategory'])->name('ad
 Route::put('/updateProduct/{id}',[ProductController::class ,'updateProduct'])->name('updateProduct');
 Route::delete('/delete/{id}',[ProductController::class ,'destroy'])->name('delete');
 Route::get('/ProductsAdmin11',[ProductController::class ,'Product'])->name('ProductsAdmin');
+Route::view('/', 'welcome')->name('welcome');
 
 
 
