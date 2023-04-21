@@ -15,7 +15,8 @@ class ContactController extends Controller
         ->select('categories.id', DB::raw('MAX(categories.title) as title'))
         ->groupBy('categories.id')
         ->get();
-        return view('contact',compact('categories'));
+        $coronaNews = DB::table('news')->where('category', 'Corona Pandemie')->get();
+        return view('contact',compact('categories','coronaNews'));
     }
     public function contact(Request $request)
     {

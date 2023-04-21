@@ -165,9 +165,12 @@
                                     <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="category">Category</label>
-                                    <input type="text" class="form-control" id="category" name="category"
-                                        required>
+                                    <label for="category" class="col-form-label">Kategorie</label>
+                                    <select id="category" class="form-control" name="category" required>
+                                        <option value="" disabled selected>Wählen Sie eine Kategorie</option>
+                                        <option value="Aktuelle Aktionen">Aktuelle Aktionen</option>
+                                        <option value="Corona Pandemie">Corona Pandemie</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="link">Link</label>

@@ -23,7 +23,8 @@ class ShopController extends Controller
     ->groupBy('categories.id')
     ->get();
     $news = News::paginate(2);
-    return view('shop', compact('products', 'query','categories','news'));
+    $coronaNews = DB::table('news')->where('category', 'Corona Pandemie')->get();
+    return view('shop', compact('products', 'query','categories','news','coronaNews'));
 }
 
 

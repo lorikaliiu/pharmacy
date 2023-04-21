@@ -8,6 +8,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RatgeberController;
 use App\Http\Controllers\ShopSingleController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -47,6 +48,7 @@ Route::put('/updateProduct/{id}',[ProductController::class ,'updateProduct'])->n
 Route::delete('/delete/{id}',[ProductController::class ,'destroy'])->name('delete');
 Route::get('/ProductsAdmin11',[ProductController::class ,'Product'])->name('ProductsAdmin');
 Route::view('/', 'welcome')->name('welcome');
+Route::get('/Ratgeber',[RatgeberController::class ,'ratgeberview'])->name('ratgeber');
 
 
 

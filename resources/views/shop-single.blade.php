@@ -48,7 +48,6 @@
                     </div>
                     <div class="col-md-6">
                         <h2 class="text-black">{{ Ucfirst($title) }}</h2>
-                        <h2 class="text-black">{{ Ucfirst($title) }}</h2>
                         <p>{{ $detail }}.</p>
                         <p><strong class="text-primary h4"> {{ $price }}$</strong></p>
                     </div>

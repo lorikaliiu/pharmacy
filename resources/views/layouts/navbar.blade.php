@@ -52,11 +52,13 @@
                     <li class="has-children">
                         <a href="#">Aktuelles</a>
                         <ul class="dropdown">
-                            <li><a href="{{ route('news') }}">Aktuelle Aktionen</a></li>
+                            <li><a href="{{ route('news') }}?selected=Aktuelle Aktionen">Aktuelle Aktionen</a></li>
                             <li class="has-children">
-                                <a href="{{ route('news') }}">Corona Pandemie</a>
+                                <a href="{{ route('news')}}?selected=Corona Pandemie">Corona Pandemie</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">+</a></li>
+                                    @foreach ($coronaNews as $news)
+                                        <li><a href="{{  route('news', ['category' => $news->id]) }}">{{ $news->title }}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
                         </ul>
@@ -76,20 +78,20 @@
                         </ul>
                     </li>
                     <li class="has-children">
-                        <a href="#">Ratgeber</a>
+                        <a>Ratgeber</a>
                         <ul class="dropdown">
-                            <li><a href="#">Gesundheit</a></li>
-                            <li><a href="#">Schönheit</a></li>
-                            <li><a href="#">Natur &
+                            <li><a href="{{ route('ratgeber') }}?selected=Gesundheit">Gesundheit</a></li>
+                            <li><a href="{{ route('ratgeber') }}?selected=Schönheit">Schönheit</a></li>
+                            <li><a href="{{ route('ratgeber') }}?selected=Natur">Natur &
                                     Komplementär</a></li>
                         </ul>
                     </li>
                     <li class="has-children">
-                        <a href="{{ route('about') }}">Über uns</a>
+                        <a>Über uns</a>
                         <ul class="dropdown">
-                            <li><a href="{{ route('about') }}">Geschichte</a></li>
-                            <li><a href="{{ route('about') }}">Team</a></li>
-                            <li><a href="{{ route('about') }}">Job & Karriere</a></li>
+                            <li><a href="{{ route('about') }}?selected=Geschichte">Geschichte</a></li>
+                            <li><a href="{{ route('about') }}?selected=team">Team</a></li>
+                            <li><a href="{{ route('about') }}?selected=Job">Job & Karriere</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ route('contact') }}">Kontakt</a></li>

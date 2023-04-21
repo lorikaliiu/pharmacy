@@ -14,21 +14,31 @@ class NewsController extends Controller
 {
     public function news()
     {
-        if ($latest_news = News::latest()->first()) {
+        if ($latest_news =  News::where('category', 'Aktuelle Aktionen')->latest()->first()) {
             $title_latest = $latest_news->title;
             $img_latest = $latest_news->img;
             $content_latest = $latest_news->content;
             $link_latest = $latest_news->link;
-        } else {
+        } elseif ($latest_news =  News::where('category', 'Aktuelle Aktionen')->latest()->first()) {
+            $title_latest = $latest_news->title;
+            $img_latest = $latest_news->img;
+            $content_latest = $latest_news->content;
+            $link_latest = $latest_news->link;
+        }else{
+
             echo "Dont have news .";
         }
+        
+
+        
+        $aktualle = News::where('category', 'Aktuelle Aktionen')->get();
         $products = Product::orderBy('title')->paginate(2);
-        $news = News::paginate(3);
         $categories = Categories::join('product', 'categories.id', '=', 'product.cat_id')
             ->select('categories.id', DB::raw('MAX(categories.title) as title'))
             ->groupBy('categories.id')
             ->get();
-        return view('news', compact('categories', 'news', 'latest_news','title_latest','img_latest','content_latest','link_latest','products'));
+        $coronaNews = DB::table('news')->where('category', 'Corona Pandemie')->get();
+        return view('news', compact('categories','aktualle','products','coronaNews','title_latest','img_latest','content_latest','link_latest'));
     }
     public function createNews(Request $request)
     {

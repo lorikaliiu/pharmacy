@@ -17,6 +17,7 @@ class IndexController extends Controller
                     ->groupBy('categories.id')
                     ->get();
         $news = News::paginate(2);
-        return view('index',compact('products','categories','news'));
+        $coronaNews = DB::table('news')->where('category', 'Corona Pandemie')->get();
+        return view('index',compact('products','categories','news','coronaNews'));
     }
 }

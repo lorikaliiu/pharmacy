@@ -19,7 +19,7 @@
 <body>
     <style>
         .site-section {
-            margin: 50px 0;
+            margin: 10px 0;
         }
 
         .bg-light {
@@ -46,10 +46,10 @@
             color: #3C486B !important
         }
     </style>
+    @include('layouts.navbar')
     @php
         $parameters = request()->input('selected');
     @endphp
-    @include('layouts.navbar')
     <div class="site-wrap">
         <div class="site-section">
             <div class="bg-light py-3">
@@ -57,10 +57,10 @@
                     <div class="row">
                         <div class="col-md-12 mb-0"><a href="{{ route('home') }}">Home</a> <span
                                 class="mx-2 mb-0">/</span> <strong class="text-black">
-                                    @if($parameters == 'Aktuelle Aktionen')
-                                        Aktuelle
+                                    @if($parameters == 'Natur')
+                                        {{ $parameters }} & Komplementär
                                     @else
-                                    Corona Pandemie
+                                        {{ $parameters }}
                                     @endif
                                 </strong>
                         </div>
@@ -68,16 +68,16 @@
                 </div>
             </div>
             <div class="container">
-                @if($parameters == 'Aktuelle Aktionen')7
+                @if($parameters == 'Gesundheit')
                 <div>
                     <div>
                         <div>
-                            <h1>{{ $title_latest }}</h1>
+                            <h1></h1>
                         </div>
                         <div class="row g-0">
                             <div class="col-md-7">
                                 <div>
-                                    <img src="{{ asset( $img_latest) }}" alt="{{ $title_latest}}" style="width:100%;">
+                                    <img src="images/health.jpg" alt="health" style="width:100%;">
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -122,13 +122,17 @@
                         </div>
                         <div>
                             <div>
-                                <h2>{{ $title_latest }}</h2>
+                                <h2></h2>
                             </div>
                             <div>
-                                <p>{{ $content_latest }}.</p>
-                            </div>
-                            <div>
-                                <a class="feedbackshowmore" href="{{ $link_latest}}">Zeig mehr</a>
+                                <p>Gesundheit ist ein Zustand vollständigen körperlichen, geistigen und sozialen
+                                    Wohlbefindens und nicht nur das Fehlen von Krankheit oder Gebrechen. Dieser Zustand
+                                    des Wohlbefindens ist von vielen Faktoren abhängig, wie z.B. einer ausgewogenen
+                                    Ernährung, regelmäßiger Bewegung, ausreichendem Schlaf und einer gesunden
+                                    psychischen Verfassung. Gesundheit ist ein lebenslanger Prozess, der sowohl
+                                    individuelle Anstrengungen als auch die Unterstützung der Gemeinschaft erfordert.
+                                    Indem wir uns um unsere Gesundheit kümmern, können wir unsere Lebensqualität
+                                    verbessern und unser Potenzial voll ausschöpfen..</p>
                             </div>
                         </div>
                     </div>
@@ -136,43 +140,16 @@
                 <div class="mt-4">
                     <hr style="border-top: 3px solid black">
                 </div>
-                <div>
-                    <div>
-                        <div class="row g-0">
-                            @foreach ($aktualle as $item)
-                                <div class="col-md-4 text-center">
-                                    <div class="p-4">
-                                        <div>
-                                            <img src="{{ asset($item->img) }}" alt="{{ $item->title }}"
-                                                class="news-image">
-                                        </div>
-                                        <div>
-                                            <h4>{{ $item->title }}</h4>
-                                        </div>
-                                        <div>
-                                            <p style="font-size: 13px">
-                                                {{ strlen($item->content) > 100 ? substr($item->content, 0, 100) . '...' : $item->content }}
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <a class="feedbackshowmore" href="{{ $item->link }}">Zeig mehr</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-                @elseif($parameters == 'Corona Pandemie')
+                @elseif($parameters == 'Schönheit')
                 <div>
                     <div>
                         <div>
-                            <h1>{{ $title_latest }}</h1>
+                            <h1></h1>
                         </div>
                         <div class="row g-0">
                             <div class="col-md-7">
                                 <div>
-                                    <img src="{{ asset( $img_latest) }}" alt="{{ $title_latest }}" style="width:100%;">
+                                    <img src="images/beauty2.png" alt="beauty2" style="width:100%;">
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -217,13 +194,18 @@
                         </div>
                         <div>
                             <div>
-                                <h2>{{ $title_latest }}</h2>
+                                <h2></h2>
                             </div>
                             <div>
-                                <p>{{ $content_latest }}.</p>
-                            </div>
-                            <div>
-                                <a class="feedbackshowmore" href="{{ $link_latest }}">Zeig mehr</a>
+                                <p>Schönheit bezieht sich auf die ästhetische Attraktivität einer Person oder eines
+                                    Gegenstands. Es ist ein subjektiver Begriff, der von verschiedenen Kulturen und
+                                    Personen unterschiedlich interpretiert wird. Schönheit kann jedoch nicht nur auf das
+                                    Äußere beschränkt werden, sondern umfasst auch innere Schönheit wie Freundlichkeit,
+                                    Empathie und Charakterstärke. Um die Schönheit zu erhalten und zu verbessern, sind
+                                    eine gesunde Ernährung, ausreichend Schlaf, regelmäßige körperliche Aktivität sowie
+                                    eine positive Einstellung und ein gutes Selbstwertgefühl von großer Bedeutung. Durch
+                                    die Pflege unseres Körpers und Geistes können wir unser äußeres Erscheinungsbild
+                                    verbessern und uns innerlich glücklicher und selbstbewusster fühlen..</p>
                             </div>
                         </div>
                     </div>
@@ -231,44 +213,16 @@
                 <div class="mt-4">
                     <hr style="border-top: 3px solid black">
                 </div>
+                @elseif($parameters == 'Natur')
                 <div>
                     <div>
-                        <div class="row g-0">
-                            @foreach ($coronaNews as $item)
-                                <div class="col-md-4 text-center">
-                                    <div class="p-4">
-                                        <div>
-                                            <img src="{{ asset($item->img) }}" alt="{{ $item->title }}"
-                                                class="news-image">
-                                        </div>
-                                        <div>
-                                            <h4>{{ $item->title }}</h4>
-                                        </div>
-                                        <div>
-                                            <p style="font-size: 13px">
-                                                {{ strlen($item->content) > 100 ? substr($item->content, 0, 100) . '...' : $item->content }}
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <a class="feedbackshowmore" href="{{ $item->link }}">Zeig mehr</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-                @elseif(request()->has('selected'))
-                <div>
-                    <div>
-                        @foreach($coronaNews->where('category', request()->has('selected'))  as $item)
                         <div>
-                            <h1>{{ $item->title }}</h1>
+                            <h1></h1>
                         </div>
                         <div class="row g-0">
                             <div class="col-md-7">
                                 <div>
-                                    <img src="{{ asset($item->img) }}" alt="{{ $item->title}}" style="width:100%;">
+                                    <img src="images/natural.jpg" alt="natural" style="width:100%;">
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -313,16 +267,23 @@
                         </div>
                         <div>
                             <div>
-                                <h2>{{ $item->title }}</h2>
+                                <h2></h2>
                             </div>
                             <div>
-                                <p>{{ $item->content }}.</p>
-                            </div>
-                            <div>
-                                <a class="feedbackshowmore" href="{{ $item->link }}">Zeig mehr</a>
+                                <p>Natur & Komplementär bezieht sich auf alternative medizinische Behandlungsmethoden,
+                                    die oft auf natürlichen oder traditionellen Heilverfahren basieren. Dazu gehören
+                                    unter anderem die traditionelle chinesische Medizin, Ayurveda, Homöopathie und
+                                    Kräutermedizin. Diese alternativen Methoden können eine wirksame Ergänzung zur
+                                    konventionellen medizinischen Behandlung sein und können helfen, körperliche und
+                                    geistige Beschwerden zu lindern oder zu verhindern. Die Natur und ihre Ressourcen
+                                    bieten eine breite Palette an natürlichen Heilmitteln, die bei der Vorbeugung und
+                                    Behandlung von Krankheiten helfen können. Komplementäre Methoden können auch dazu
+                                    beitragen, das Wohlbefinden zu steigern, Stress abzubauen und das Immunsystem zu
+                                    stärken. Es ist jedoch wichtig, sich vor der Anwendung von alternativen Methoden mit
+                                    einem qualifizierten Arzt oder Therapeuten zu beraten, um mögliche Risiken und
+                                    Wechselwirkungen mit anderen Medikamenten oder Therapien zu vermeiden.</p>
                             </div>
                         </div>
-                        @endforeach
                     </div>
                 </div>
                 <div class="mt-4">
@@ -330,43 +291,44 @@
                 </div>
                 @endif
             </div>
-            <div class="site-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="title-section text-center col-12">
-                            <h2 class="text-uppercase">Beliebte Produkte</h2>
-                        </div>
+
+        </div>
+        <div class="site-section">
+            <div class="container">
+                <div class="row">
+                    <div class="title-section text-center col-12">
+                        <h2 class="text-uppercase">Beliebte Produkte</h2>
                     </div>
-    
-                    <div class="row">
-                        @foreach ($products as $product)
-                            <div class="col-sm-6 col-lg-4 text-center item mb-4">
-                                <a href="{{ route('shopsingle', ['id' => $product->id]) }}">
-                                    <img class="productsallpublished" src="{{ asset($product->img) }}"
-                                        alt="{{ $product->title }}">
-                                </a>
-                                <p class="category">
-                                    Category: {{ $product->category->title ?? 'N/A' }}
-                                </p>
-                                <h3 class="product-title"><a href="#">{{ Ucfirst($product->title) }}</a></h3>
-                                <p class="price">
-                                    Price: ${{ $product->price }}
-                                </p>
-                                <p class="product-detail">
-                                    {{ strlen($product->detail) > 100 ? substr($product->detail, 0, 100) . '...' : $product->detail }}
-                                </p>
-                                <div>
-                                    <a style="color:#3C486B" href="{{ route('shopsingle', ['id' => $product->id]) }}">Zeig
-                                        mehr</a>
-                                </div>
+                </div>
+
+                <div class="row">
+                    @foreach ($products as $product)
+                        <div class="col-sm-6 col-lg-4 text-center item mb-4">
+                            <a href="{{ route('shopsingle', ['id' => $product->id]) }}">
+                                <img class="productsallpublished" src="{{ asset($product->img) }}"
+                                    alt="{{ $product->title }}">
+                            </a>
+                            <p class="category">
+                                Category: {{ $product->category->title ?? 'N/A' }}
+                            </p>
+                            <h3 class="product-title"><a href="#">{{ Ucfirst($product->title) }}</a></h3>
+                            <p class="price">
+                                Price: ${{ $product->price }}
+                            </p>
+                            <p class="product-detail">
+                                {{ strlen($product->detail) > 100 ? substr($product->detail, 0, 100) . '...' : $product->detail }}
+                            </p>
+                            <div>
+                                <a style="color:#3C486B" href="{{ route('shopsingle', ['id' => $product->id]) }}">Zeig
+                                    mehr</a>
                             </div>
-                        @endforeach
-                    </div>
-    
-                    <div class="row mt-5">
-                        <div class="col-12 text-center">
-                            <a href="{{ route('shop') }}" class="btn btn-primary px-4 py-3">Alle Produkte anzeigen</a>
                         </div>
+                    @endforeach
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-12 text-center">
+                        <a href="{{ route('shop') }}" class="btn btn-primary px-4 py-3">Alle Produkte anzeigen</a>
                     </div>
                 </div>
             </div>

@@ -76,8 +76,8 @@
 
          .btn-primary  {
             border-radius: 8px !important;
-            background: #3C486B !important;
-            border-color : #3C486B !important;
+            background:#00a79d !important;
+            border-color :#00a79d !important;
             color:white;
         }
         .btn.btn-primary:hover{
@@ -100,7 +100,7 @@
                                     <a  href="{{ route('shop') }}" class="btn btn-primary px-5 py-3">Produkte</a>
                                 </p>
                                 <p>
-                                    <a href="{{ route('news') }}" class="btn btn-primary px-5 py-3">Sie möchten
+                                    <a href="{{ route('news') }}?selected=Aktuelle Aktionen" class="btn btn-primary px-5 py-3">Sie möchten
                                         Neuigkeiten lesen</a>
                                 </p>
                                 <p>
