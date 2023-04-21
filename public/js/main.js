@@ -50,7 +50,7 @@ jQuery(document).ready(function($) {
 
 		
 
-		$('.js-logo-clone').clone().appendTo('.site-mobile-menu-logo');
+		 $('.js-logo-clone').clone().appendTo('.site-mobile-menu-logo');
 
 		$('<span class="ion-ios-close js-menu-toggle"></div>').prependTo('.site-mobile-menu-close');
 		

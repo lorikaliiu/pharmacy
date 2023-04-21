@@ -3,7 +3,7 @@
         <div class="row px-md-5">
             <div class="col-md-3">
                 <a href="{{ route('home') }}"><img src="{{ asset('images/logo.svg') }}"/></a>
-                <a href="{{ route('home') }}" class="js-logo-clone" style="margin-left: 20px; color:black;">Apotheke Frutigen</a>
+                <a href="{{ route('home') }}" class="" style="margin-left: 20px; color:black;">Apotheke Frutigen</a>
                 <hr>
                 <ul class="list-unstyled">
                     <li class="social-media">

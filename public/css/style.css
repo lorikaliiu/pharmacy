@@ -45,7 +45,7 @@ a {
   z-index: 2;
   overflow: hidden; }
   .offcanvas-menu .site-wrap:before {
-    opacity: 0;
+    opacity: 1;
     visibility: visible; }
 
 .btn {
@@ -130,7 +130,7 @@ a {
 .site-logo a {
   text-transform: uppercase;
   letter-spacing: .2em;
-  font-size: 22px;
+  font-size: 15px;
   color: #000 !important;
   font-weight: 900; }
   .site-logo a:hover {
@@ -359,7 +359,7 @@ a {
   .site-mobile-menu .site-mobile-menu-header {
     width: 100%;
     float: left;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px; }
     .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-close {
@@ -380,13 +380,13 @@ a {
     .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-logo {
       float: left;
       margin-top: 10px;
-      margin-left: 20px; }
+      margin-left: 10px; }
       .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-logo a {
         display: inline-block;
         text-transform: uppercase;
         color: #000;
         letter-spacing: .2em;
-        font-size: 22px;
+        font-size: 15px;
         font-weight: 900; }
         .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-logo a:hover {
           text-decoration: none; }

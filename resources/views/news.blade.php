@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="container">
-                @if($parameters == 'Aktuelle Aktionen')7
+                @if($parameters == 'Aktuelle Aktionen')
                 <div>
                     <div>
                         <div>
@@ -261,7 +261,7 @@
                 @elseif(request()->has('selected'))
                 <div>
                     <div>
-                        @foreach($coronaNews->where('category', request()->has('selected'))  as $item)
+                        @foreach($coronaNews->where('category', request()->input('selected'))  as $item)
                         <div>
                             <h1>{{ $item->title }}</h1>
                         </div>

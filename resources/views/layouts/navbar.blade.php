@@ -54,10 +54,12 @@
                         <ul class="dropdown">
                             <li><a href="{{ route('news') }}?selected=Aktuelle Aktionen">Aktuelle Aktionen</a></li>
                             <li class="has-children">
-                                <a href="{{ route('news')}}?selected=Corona Pandemie">Corona Pandemie</a>
+                                <a href="{{ route('news') }}?selected=Corona Pandemie">Corona Pandemie</a>
                                 <ul class="dropdown">
                                     @foreach ($coronaNews as $news)
-                                        <li><a href="{{  route('news', ['category' => $news->id]) }}">{{ $news->title }}</a></li>
+                                        <li><a
+                                                href="{{ route('news', ['selected' => $news->id]) }}">{{ $news->title }}</a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -113,7 +115,21 @@
     }
 </script>
 <style>
-    
+    .has-children {
+        position: relative;
+    }
+
+    .has-children>.dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+
+    .has-children:hover>.dropdown {
+        display: block;
+    }
+
     @media only screen and (max-width: 480px) {
         .logo img {
             width: 30px;
@@ -122,8 +138,12 @@
 
         .logo .js-logo-clone {
             font-size: 12px;
-            margin-left: 9px;
+            margin-left: 15px !important;
 
+        }
+
+        .js-logo-clone {
+            margin-left: 10px !important;
         }
     }
 

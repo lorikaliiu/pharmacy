@@ -14,12 +14,12 @@ class NewsController extends Controller
 {
     public function news()
     {
-        if ($latest_news =  News::where('category', 'Aktuelle Aktionen')->latest()->first()) {
+        if ($latest_news =  News::where('category','Aktuelle Aktionen')->latest()->first()) {
             $title_latest = $latest_news->title;
             $img_latest = $latest_news->img;
             $content_latest = $latest_news->content;
             $link_latest = $latest_news->link;
-        } elseif ($latest_news =  News::where('category', 'Aktuelle Aktionen')->latest()->first()) {
+        } elseif ($latest_news =  News::where('category','Corona Pandemie')->latest()->first()) {
             $title_latest = $latest_news->title;
             $img_latest = $latest_news->img;
             $content_latest = $latest_news->content;
