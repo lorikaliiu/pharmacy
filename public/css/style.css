@@ -1102,7 +1102,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(81, 234, 234, 0.9);
+   
     z-index: 1; }
   .bg-image > .container {
     position: relative;

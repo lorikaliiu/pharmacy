@@ -330,44 +330,9 @@
                 </div>
                 @endif
             </div>
-            <div class="site-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="title-section text-center col-12">
-                            <h2 class="text-uppercase">Beliebte Produkte</h2>
-                        </div>
-                    </div>
-    
-                    <div class="row">
-                        @foreach ($products as $product)
-                            <div class="col-sm-6 col-lg-4 text-center item mb-4">
-                                <a href="{{ route('shopsingle', ['id' => $product->id]) }}">
-                                    <img class="productsallpublished" src="{{ asset($product->img) }}"
-                                        alt="{{ $product->title }}">
-                                </a>
-                                <p class="category">
-                                    Category: {{ $product->category->title ?? 'N/A' }}
-                                </p>
-                                <h3 class="product-title"><a href="#">{{ Ucfirst($product->title) }}</a></h3>
-                                <p class="price">
-                                    Price: ${{ $product->price }}
-                                </p>
-                                <p class="product-detail">
-                                    {{ strlen($product->detail) > 100 ? substr($product->detail, 0, 100) . '...' : $product->detail }}
-                                </p>
-                                <div>
-                                    <a style="color:#3C486B" href="{{ route('shopsingle', ['id' => $product->id]) }}">Zeig
-                                        mehr</a>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-    
-                    <div class="row mt-5">
-                        <div class="col-12 text-center">
-                            <a href="{{ route('shop') }}" class="btn btn-primary px-4 py-3">Alle Produkte anzeigen</a>
-                        </div>
-                    </div>
+            <div class="">
+                <div>
+                    <img src='images/viruss.png' alt="virus" style="width:100%;">
                 </div>
             </div>
         </div>

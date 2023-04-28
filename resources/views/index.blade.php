@@ -30,7 +30,7 @@
 
         .buttons-container {
             display: flex;
-            justify-content: space-between;
+            justify-content:center;
             opacity: 0;
             animation: appear 1s ease-in-out forwards;
         }
@@ -98,14 +98,6 @@
                             <div class="buttons-container">
                                 <p>
                                     <a  href="{{ route('shop') }}" class="btn btn-primary px-5 py-3">Produkte</a>
-                                </p>
-                                <p>
-                                    <a href="{{ route('news') }}?selected=Aktuelle Aktionen" class="btn btn-primary px-5 py-3">Sie möchten
-                                        Neuigkeiten lesen</a>
-                                </p>
-                                <p>
-                                    <a href="{{ route('contact') }}" class="btn btn-primary px-5 py-3">Kontaktiere
-                                        uns</a>
                                 </p>
                             </div>
                         </div>

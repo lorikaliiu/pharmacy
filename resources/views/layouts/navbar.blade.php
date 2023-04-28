@@ -142,8 +142,9 @@
 
         }
 
-        .js-logo-clone {
-            margin-left: 10px !important;
+        .js-logo-clone {  
+            font-size: 13px !important;
+            margin-left: 1px !important; margin-left: 10px !important;
         }
     }
 
