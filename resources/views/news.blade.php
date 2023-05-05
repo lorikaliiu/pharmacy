@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <style>
         .site-section {
@@ -259,9 +258,12 @@
                     </div>
                 </div>
                 @elseif(request()->has('selected'))
+                @php
+
+                @endphp
                 <div>
                     <div>
-                        @foreach($coronaNews->where('category', request()->input('selected'))  as $item)
+                        @foreach($coronaNews->where('id', request()->input('selected'))  as $item)
                         <div>
                             <h1>{{ $item->title }}</h1>
                         </div>

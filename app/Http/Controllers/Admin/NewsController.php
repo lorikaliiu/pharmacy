@@ -28,9 +28,9 @@ class NewsController extends Controller
 
             echo "Dont have news .";
         }
-        
 
-        
+
+
         $aktualle = News::where('category', 'Aktuelle Aktionen')->get();
         $products = Product::orderBy('title')->paginate(2);
         $categories = Categories::join('product', 'categories.id', '=', 'product.cat_id')
@@ -38,6 +38,7 @@ class NewsController extends Controller
             ->groupBy('categories.id')
             ->get();
         $coronaNews = DB::table('news')->where('category', 'Corona Pandemie')->get();
+
         return view('news', compact('categories','aktualle','products','coronaNews','title_latest','img_latest','content_latest','link_latest'));
     }
     public function createNews(Request $request)
