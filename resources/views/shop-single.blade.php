@@ -55,23 +55,9 @@
             </div>
         </div>
 
-        <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_3.jpg');">
-            <div class="container">
-                <div class="row align-items-stretch">
-                    @foreach ($news as $item)
-                        <div class="col-lg-6 mb-5 mb-lg-0">
-                            <a href="{{ route('news', ['id' => $item->id]) }}" class="banner-1 h-100 d-flex"
-                                style="background-image: url('{{ asset($item->img) }}');">
-                                <div class="banner-1-inner align-self-center">
-                                    <h4>{{ $item->title }}</h4>
-                                    {{-- <p style="font-size: 13px">
-                                        {{ strlen($item->content) > 100 ? substr($item->content, 0, 100) . '...' : $item->content }}
-                                    </p> --}}
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
+        <div class="" style="background-image: url('images/pills.jpg'); height:100%; background-repeat:no-repeat;background-size:cover;">
+            <div>
+                <img src='images/coverno.png' alt="virus" style="width:100%;">
             </div>
         </div>
         @include('layouts.footer')

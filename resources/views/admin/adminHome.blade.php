@@ -64,24 +64,25 @@
                     <div class="row g-0 my-3 ">
                         <div class="col-12 col-md-auto d-flex justify-content-start">
                             <div class="my-2">
-                            <button style="margin-right: 10px;" type="button" class="btn btn-info btn-sm"
-                                data-toggle="modal" data-target="#addCategoryModal">Category hinzufügen</button>
-                        </div></div>
-                       <div class="col-12 col-md-auto d-flex ">
-                        <div class="my-2" >
-                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                                data-target="#addNewsModal">
-                                Add News
-                            </button>
+                                <button style="margin-right: 10px;" type="button" class="btn btn-info btn-sm"
+                                    data-toggle="modal" data-target="#addCategoryModal">Category hinzufügen</button>
+                            </div>
                         </div>
-                       </div>
+                        <div class="col-12 col-md-auto d-flex ">
+                            <div class="my-2">
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                                    data-target="#addNewsModal">
+                                    Add News
+                                </button>
+                            </div>
+                        </div>
 
                         <div class="col-12 col-md-auto d-flex">
                             <div class="my-2">
-                            <button type="button" class="btn btn-info btn-sm"
-                                data-toggle="modal" data-target="#addProductModal">Produkt hinzufügen</button>
-                        </div
-                        ></div>
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                                    data-target="#addProductModal">Produkt hinzufügen</button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row">
@@ -103,8 +104,9 @@
                                             <tr>
                                                 <th scope="row">{{ $product->title }}</th>
                                                 <td class="w-25">
-                                                    <img src="{{ asset($product->img) }}" class="img-fluid img-thumbnail"
-                                                        alt="Sheep" style="height:150px; width:100px;">
+                                                    <img src="{{ asset($product->img) }}"
+                                                        class="img-fluid img-thumbnail" alt="Sheep"
+                                                        style="height:150px; width:100px;">
                                                 </td>
                                                 <td>{{ $product->category->title ?? "Don't have" }}</td>
                                                 <td>{{ $product->price }}</td>
@@ -136,7 +138,6 @@
                         </div>
                     </div>
                 </div>
-
 
             </div>
             <div class="row mt-5">
@@ -170,8 +171,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="category">Category</label>
-                                    <input type="text" class="form-control" id="category" name="category"
-                                        required>
+                                    <select class="form-control" id="category" name="category" required>
+                                        <option value="Corona Pandemie">Corona Pandemie</option>
+                                        <option value="Aktuelle Aktionen">Aktuelle Aktionen</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="link">Link</label>
