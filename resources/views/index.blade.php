@@ -30,7 +30,7 @@
 
         .buttons-container {
             display: flex;
-            justify-content:center;
+            justify-content: center;
             opacity: 0;
             animation: appear 1s ease-in-out forwards;
         }
@@ -74,14 +74,18 @@
             animation-delay: 0.6s;
         }
 
-         .btn-primary  {
+        .btn-primary {
             border-radius: 8px !important;
-            background:#00a79d !important;
-            border-color :#00a79d !important;
-            color:white;
+            background: #00a79d !important;
+            border-color: #00a79d !important;
+            color: white;
         }
-        .btn.btn-primary:hover{
-            color:white !important;
+
+        .btn.btn-primary:hover {
+            color: white !important;
+        }
+        .colormodal{
+            color:black !important;
         }
     </style>
     <div class="site-wrap">
@@ -97,8 +101,12 @@
                             <h1>Willkommen zu Apotheke Frutigen</h1>
                             <div class="buttons-container">
                                 <p>
-                                    <a  href="{{ route('shop') }}" class="btn btn-primary px-5 py-3">Produkte</a>
+                                    <a href="{{ route('shop') }}" class="btn btn-primary px-5 py-3">Produkte</a>
                                 </p>
+                            </div>
+                            <div class="buttons-container d-sm-none d-block ">
+                                <button type="button" class="btn btn-primary px-5 py-3" data-toggle="modal"
+                                    data-target="#kategoriModal">Kategotie</button>
                             </div>
                         </div>
                     </div>
@@ -173,8 +181,7 @@
                                 {{ strlen($product->detail) > 100 ? substr($product->detail, 0, 100) . '...' : $product->detail }}
                             </p>
                             <div>
-                                <a style="color:#3C486B"
-                                    href="{{ route('shopsingle', ['id' => $product->id]) }}">Zeig
+                                <a style="color:#3C486B" href="{{ route('shopsingle', ['id' => $product->id]) }}">Zeig
                                     mehr</a>
                             </div>
                         </div>
@@ -261,43 +268,123 @@
             </div>
         </div>
 
-        <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_3.jpg');">
-            <div class="container">
-                <div class="row align-items-stretch">
-                    @foreach ($news as $item)
-                        <div class="col-lg-6 mb-5 mb-lg-0">
-                            <a href="{{ route('news', ['id' => $item->id]) }}" class="banner-1 h-100 d-flex"
-                                style="background-image: url('{{ asset($item->img) }}');">
-                                <div class="banner-1-inner align-self-center">
-                                    <h4 style="color:black">{{ $item->title }}</h4>
-                                    {{-- <p style="font-size: 13px">
-                                        {{ strlen($item->content) > 100 ? substr($item->content, 0, 100) . '...' : $item->content }}
-                                    </p> --}}
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
+        <div class="" style="background-image: url('images/pills.jpg'); height:100%; background-repeat:no-repeat;background-size:cover;">
+            <div>
+                <img src='images/coverno.png' alt="virus" style="width:100%;">
+            </div>
+        </div>
+        @include('layouts.footer')
+        <!-- Modal -->
+        <div class="modal fade" id="kategoriModal" tabindex="-1" role="dialog"
+            aria-labelledby="kategoriModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content" style="height:70vh;">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="kategoriModalLabel">Produkt hinzufügen</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <ul class="">
+                            <li class="has-children">
+                                <a class="colormodal">Dienstleistungen</a>
+                                <ul class="dropdown ">
+                                    <li><a class="colormodal" href="#">Gesundheitsberatung</a></li>
+                                    <li class="has-children">
+                                        <a class="colormodal" href="#">Medizinisch Dienstleistungen</a>
+                                        <ul class="dropdown">
+                                            <li><a class="colormodal" href="#">+</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-children">
+                                        <a class="colormodal" href="#">Impfungen</a>
+                                        <ul class="dropdown">
+                                            <li><a class="colormodal" href="#">+</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-children">
+                                        <a class="colormodal" href="#">Checks && Messungen</a>
+                                        <ul class="dropdown">
+                                            <li><a class="colormodal" href="#">+</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="colormodal" href="#">Hauslieferdienst</a></li>
+                                    <li><a class="colormodal" href="#">Herstellung v. Medikamenten</a></li>
+                                    <li><a class="colormodal" href="#">Verblisterung v. Medikamenten</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-children">
+                                <a class="colormodal" >Aktuelles</a>
+                                <ul class="dropdown">
+                                    <li><a class="colormodal" href="{{ route('news') }}?selected=Aktuelle Aktionen">Aktuelle Aktionen</a>
+                                    </li>
+                                    <li class="has-children">
+                                        <a class="colormodal" href="{{ route('news') }}?selected=Corona Pandemie">Corona Pandemie</a>
+                                        <ul class="dropdown">
+                                            @foreach ($coronaNews as $news)
+                                                <li><a class="colormodal"
+                                                        href="{{ route('news', ['selected' => $news->id]) }}">{{ $news->title }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-children">
+                                <a class="colormodal">Unser Angebot</a>
+                                <ul class="dropdown">
+                                    <li class="has-children">
+                                        <a class="colormodal" href="#">Naturheilkunde</a>
+                                        <ul class="dropdown">
+                                            <li><a class="colormodal" href="#">+</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="colormodal" href="#">Hauspezialitätens</a></li>
+                                    <li><a class="colormodal" href="#">Kosmetik</a></li>
+                                    <li><a class="colormodal" href="#">Orlochstehen</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-children">
+                                <a class="colormodal">Ratgeber</a>
+                                <ul class="dropdown">
+                                    <li><a class="colormodal" href="{{ route('ratgeber') }}?selected=Gesundheit">Gesundheit</a></li>
+                                    <li><a class="colormodal" href="{{ route('ratgeber') }}?selected=Schönheit">Schönheit</a></li>
+                                    <li><a class="colormodal" href="{{ route('ratgeber') }}?selected=Natur">Natur &
+                                            Komplementär</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-children">
+                                <a class="colormodal">Über uns</a>
+                                <ul class="dropdown">
+                                    <li><a class="colormodal" href="{{ route('about') }}?selected=Geschichte">Geschichte</a></li>
+                                    <li><a class="colormodal" href="{{ route('about') }}?selected=team">Team</a></li>
+                                    <li><a class="colormodal" href="{{ route('about') }}?selected=Job">Job & Karriere</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="colormodal" href="{{ route('contact') }}">Kontakt</a></li>
+                        </ul>
+
+                    </div>
                 </div>
             </div>
         </div>
+        <script>
+            function Search() {
+                document.querySelector('.site-mobile-menu').style.display = 'none';
 
-        @include('layouts.footer')
-    </div>
-    <script>
-        function Search() {
-            document.querySelector('.site-mobile-menu').style.display = 'none';
+            }
+        </script>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/aos.js"></script>
 
-        }
-    </script>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/aos.js"></script>
-
-    <script src="js/main.js"></script>
+        <script src="js/main.js"></script>
 
 </body>
 
