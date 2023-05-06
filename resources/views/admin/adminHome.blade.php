@@ -62,22 +62,27 @@
                 @include('layouts.adminnavbar')
                 <div class="px-5">
                     <div class="row g-0 my-3 ">
-                        <div class="col-md-6 d-flex justify-content-start">
-                            <button style="margin-right: 10px;" type="button" class="btn btn-info btn-sm"
-                                data-toggle="modal" data-target="#addCategoryModal">Category hinzufügen</button>
+                        <div class="col-12 col-md-auto d-flex justify-content-start">
+                            <div class="my-2">
+                                <button style="margin-right: 10px;" type="button" class="btn btn-info btn-sm"
+                                    data-toggle="modal" data-target="#addCategoryModal">Category hinzufügen</button>
+                            </div>
                         </div>
-                       <div class="col-md-6 d-flex justify-content-end">
-                        <div >
-                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                                data-target="#addNewsModal">
-                                Add News
-                            </button>
+                        <div class="col-12 col-md-auto d-flex ">
+                            <div class="my-2">
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                                    data-target="#addNewsModal">
+                                    Add News
+                                </button>
+                            </div>
                         </div>
-                        <div class=" ">
-                            <button style="margin-left: 10px;" type="button" class="btn btn-info btn-sm"
-                                data-toggle="modal" data-target="#addProductModal">Produkt hinzufügen</button>
+
+                        <div class="col-12 col-md-auto d-flex">
+                            <div class="my-2">
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                                    data-target="#addProductModal">Produkt hinzufügen</button>
+                            </div>
                         </div>
-                       </div>
                     </div>
 
                     <div class="row">
@@ -99,8 +104,9 @@
                                             <tr>
                                                 <th scope="row">{{ $product->title }}</th>
                                                 <td class="w-25">
-                                                    <img src="{{ asset($product->img) }}" class="img-fluid img-thumbnail"
-                                                        alt="Sheep" style="height:150px; width:100px;">
+                                                    <img src="{{ asset($product->img) }}"
+                                                        class="img-fluid img-thumbnail" alt="Sheep"
+                                                        style="height:150px; width:100px;">
                                                 </td>
                                                 <td>{{ $product->category->title ?? "Don't have" }}</td>
                                                 <td>{{ $product->price }}</td>
@@ -133,7 +139,6 @@
                     </div>
                 </div>
 
-
             </div>
             <div class="row mt-5">
                 <div class="col-md-12 text-center">
@@ -165,11 +170,10 @@
                                     <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="category" class="col-form-label">Kategorie</label>
-                                    <select id="category" class="form-control" name="category" required>
-                                        <option value="" disabled selected>Wählen Sie eine Kategorie</option>
-                                        <option value="Aktuelle Aktionen">Aktuelle Aktionen</option>
+                                    <label for="category">Category</label>
+                                    <select class="form-control" id="category" name="category" required>
                                         <option value="Corona Pandemie">Corona Pandemie</option>
+                                        <option value="Aktuelle Aktionen">Aktuelle Aktionen</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
