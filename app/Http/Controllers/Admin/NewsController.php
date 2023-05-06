@@ -14,6 +14,10 @@ class NewsController extends Controller
 {
     public function news()
     {
+        $title_latest = '';
+        $img_latest = '';
+        $content_latest = '';
+        $link_latest = '';
         if ($latest_news =  News::where('category','Aktuelle Aktionen')->latest()->first()) {
             $title_latest = $latest_news->title;
             $img_latest = $latest_news->img;
