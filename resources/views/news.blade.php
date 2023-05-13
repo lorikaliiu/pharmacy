@@ -71,12 +71,12 @@
                 <div>
                     <div>
                         <div>
-                            <h1>{{ $title_latest }}</h1>
+                            <h1 style="color:black">{{ $aktualle_last->title }}</h1>
                         </div>
                         <div class="row g-0">
                             <div class="col-md-7">
                                 <div>
-                                    <img src="{{ asset( $img_latest) }}" alt="{{ $title_latest}}" style="width:100%;">
+                                    <img src="{{ asset( $aktualle_last->img) }}" alt="{{ $aktualle_last->title }}" style="width:100%;">
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -121,13 +121,13 @@
                         </div>
                         <div>
                             <div>
-                                <h2>{{ $title_latest }}</h2>
+                                <h2 style="color:black">{{ $aktualle_last->title }}</h2>
                             </div>
                             <div>
-                                <p>{{ $content_latest }}.</p>
+                                <p>{{ $aktualle_last->content }}.</p>
                             </div>
                             <div>
-                                <a class="feedbackshowmore" href="{{ $link_latest}}">Zeig mehr</a>
+                                <a class="feedbackshowmore" href="{{ $aktualle_last->link }}">Zeig mehr</a>
                             </div>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
                                                 class="news-image">
                                         </div>
                                         <div>
-                                            <h4>{{ $item->title }}</h4>
+                                            <h4 style="color:black">{{ $item->title }}</h4>
                                         </div>
                                         <div>
                                             <p style="font-size: 13px">
@@ -166,12 +166,12 @@
                 <div>
                     <div>
                         <div>
-                            <h1>{{ $title_latest }}</h1>
+                            <h1 style="color:black">{{ $corona_last->title }}</h1>
                         </div>
                         <div class="row g-0">
                             <div class="col-md-7">
                                 <div>
-                                    <img src="{{ asset( $img_latest) }}" alt="{{ $title_latest }}" style="width:100%;">
+                                    <img src="{{ asset( $corona_last->img) }}" alt="{{ $corona_last->title }}" style="width:100%;">
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -216,13 +216,13 @@
                         </div>
                         <div>
                             <div>
-                                <h2>{{ $title_latest }}</h2>
+                                <h2 style="color:black">{{ $corona_last->title }}</h2>
                             </div>
                             <div>
-                                <p>{{ $content_latest }}.</p>
+                                <p>{{ $corona_last->content }}.</p>
                             </div>
                             <div>
-                                <a class="feedbackshowmore" href="{{ $link_latest }}">Zeig mehr</a>
+                                <a class="feedbackshowmore" href="{{  $corona_last->link }}">Zeig mehr</a>
                             </div>
                         </div>
                     </div>
@@ -241,7 +241,7 @@
                                                 class="news-image">
                                         </div>
                                         <div>
-                                            <h4>{{ $item->title }}</h4>
+                                            <h4 style="color:black">{{ $item->title }}</h4>
                                         </div>
                                         <div>
                                             <p style="font-size: 13px">
@@ -265,7 +265,7 @@
                     <div>
                         @foreach($coronaNews->where('id', request()->input('selected'))  as $item)
                         <div>
-                            <h1>{{ $item->title }}</h1>
+                            <h1 style="color:black">{{ $item->title }}</h1>
                         </div>
                         <div class="row g-0">
                             <div class="col-md-7">
@@ -315,7 +315,7 @@
                         </div>
                         <div>
                             <div>
-                                <h2>{{ $item->title }}</h2>
+                                <h2 style="color:black">{{ $item->title }}</h2>
                             </div>
                             <div>
                                 <p>{{ $item->content }}.</p>
