@@ -78,7 +78,7 @@
                                     <a href="#">{{ Ucfirst($product->title) }}</a>
                                 </h3>
                                 <p class="price">
-                                    Price: {{ $product->price }}$
+                                    Price: {{ $product->price }} CHF
                                 </p>
                                 <p>{{ strlen( $product->detail) > 100 ? substr( $product->detail, 0, 100) . '...' :  $product->detail }}</p>
                                 <div>
@@ -103,7 +103,7 @@
                                     <a href="#">{{ Ucfirst($product->title) }}</a>
                                 </h3>
                                 <p class="price">
-                                    Price: {{ $product->price }}$
+                                    Price: {{ $product->price }}CHF
                                 </p>
                                 <p>{{ strlen( $product->detail) > 100 ? substr( $product->detail, 0, 100) . '...' :  $product->detail }}</p>
                                 <div>
