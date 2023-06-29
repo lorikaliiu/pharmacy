@@ -27,7 +27,7 @@ class ContactMail extends Mailable
     public function build()
     {
         return $this->from(env('MAIL_FROM_ADDRESS'), 'Apotheke Frutigen')
-            ->subject('Danke')
+            ->subject('Vielen Dank für Ihre Kontaktaufnahme')
             ->view('template')
             ->with([
                 'name' => $this->name,
