@@ -16,7 +16,7 @@ class FormMail extends Mailable
     public $name;
     public $lastname;
     public $email;
-    public $subject;
+    public $formSubject;
     public $formMessage;
 
     public function __construct($name, $lastname, $email, $subject, $message)
@@ -24,7 +24,7 @@ class FormMail extends Mailable
         $this->name = $name;
         $this->lastname = $lastname;
         $this->email = $email;
-        $this->subject = $subject;
+        $this->formSubject = $subject;
         $this->formMessage = $message;
     }
 
@@ -39,7 +39,7 @@ class FormMail extends Mailable
                 'name' => $this->name,
                 'lastname' => $this->lastname,
                 'email' => $this->email,
-                'subject' => $this->subject,
+                'formSubject' => $this->formSubject,
                 'formMessage' => $this->formMessage,
             ]);
     }
