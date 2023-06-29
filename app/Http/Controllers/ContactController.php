@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Contact;
 use Illuminate\Support\Facades\DB;
+use Mail;
+use App\Mail\ContactMail;
 
 
 class ContactController extends Controller
@@ -36,6 +38,8 @@ class ContactController extends Controller
         'message' => $validatedData['message'],
     ]);
 
+    Mail::to($request->email)->send(new ContactMail($request->name, $request->lastname,));
+    
     return redirect()->back()->with('success', 'Danke für deine Nachricht. Wir werden uns bald mit Ihnen in Verbindung setzen!');
 }
 }
