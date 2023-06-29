@@ -85,7 +85,7 @@ For what reason would it be advisable for me to think about business content? Th
                                 [Subject]
                               <br>
                               <br>
-                              {{$subject}}
+                              {{$fromSubject}}
                               <br>
                               <br>
                               <br>
