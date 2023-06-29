@@ -8,6 +8,7 @@ use App\Models\Contact;
 use Illuminate\Support\Facades\DB;
 use Mail;
 use App\Mail\ContactMail;
+use App\Mail\FormMail;
 
 
 class ContactController extends Controller
@@ -20,9 +21,9 @@ class ContactController extends Controller
         $coronaNews = DB::table('news')->where('category', 'Corona Pandemie')->get();
         return view('contact',compact('categories','coronaNews'));
     }
-    public function contact(Request $request)
+    public function contact(Request $req)
     {
-    $validatedData = $request->validate([
+    $validatedData = $req->validate([
         'name' => 'required',
         'lastname' => 'required',
         'email' => 'required|email',
@@ -38,7 +39,9 @@ class ContactController extends Controller
         'message' => $validatedData['message'],
     ]);
 
-    Mail::to($request->email)->send(new ContactMail($request->name, $request->lastname,));
+    Mail::to($req->email)->send(new ContactMail($req->name, $req->lastname,));
+    Mail::to(env('MAIL_FROM_ADDRESS'))->send(new FormMail($req->name, $req->lastname, $req->email, $req->subject, $req->message));
+
     
     return redirect()->back()->with('success', 'Danke für deine Nachricht. Wir werden uns bald mit Ihnen in Verbindung setzen!');
 }

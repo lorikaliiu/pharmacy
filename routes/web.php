@@ -48,7 +48,7 @@ Route::put('/updateProduct/{id}',[ProductController::class ,'updateProduct'])->n
 Route::delete('/delete/{id}',[ProductController::class ,'destroy'])->name('delete');
 Route::get('/ProductsAdmin11',[ProductController::class ,'Product'])->name('ProductsAdmin');
 Route::view('/', 'welcome')->name('welcome');
-Route::view('/template', 'template')->name('template');
+Route::view('/templateforme', 'templateforme')->name('templateforme');
 Route::get('/Ratgeber',[RatgeberController::class ,'ratgeberview'])->name('ratgeber');
 
 
