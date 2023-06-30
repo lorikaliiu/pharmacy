@@ -31,7 +31,7 @@
 
         @include('layouts.navbar')
         @if ($parameters == 'Geschichte')
-            <div class="site-blocks-cover inner-page" style="background-image: url('images/hero_1.jpg');">
+            <div class="site-blocks-cover inner-page" style="background-image: url('images/health.webp');">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-7 mx-auto align-self-center">
@@ -50,7 +50,7 @@
                         <div class="col-md-6 order-md-2">
                             <div class="block-16">
                                 <figure>
-                                    <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded">
+                                    <img src="images/hero_1.webp" alt="Image placeholder" class="img-fluid rounded">
                                     <a href="https://vimeo.com/channels/staffpicks/93951774"
                                         class="play-button popup-vimeo"><span class="icon-play"></span></a>
 
@@ -86,7 +86,7 @@
                         <div class="col-md-6">
                             <div class="block-16">
                                 <figure>
-                                    <img src="images/bg_1.jpg" alt="Image placeholder" class="img-fluid rounded">
+                                    <img src="images/bg_1.webp" alt="Image placeholder" class="img-fluid rounded">
                                     <a href="https://vimeo.com/channels/staffpicks/93951774"
                                         class="play-button popup-vimeo"><span class="icon-play"></span></a>
 
@@ -175,7 +175,7 @@
                             <div class="block-38 text-center">
                                 <div class="block-38-img">
                                     <div class="block-38-header">
-                                        <img src="images/person_1.jpg" alt="Image placeholder" class="mb-4">
+                                        <img src="images/person_1.webp" alt="Image placeholder" class="mb-4">
                                         <h3 class="block-38-heading h4">Elizabeth Graham</h3>
                                         <p class="block-38-subheading">CEO/Co-Founder</p>
                                     </div>
@@ -192,7 +192,7 @@
                             <div class="block-38 text-center">
                                 <div class="block-38-img">
                                     <div class="block-38-header">
-                                        <img src="images/person_2.jpg" alt="Image placeholder" class="mb-4">
+                                        <img src="images/person_2.webp" alt="Image placeholder" class="mb-4">
                                         <h3 class="block-38-heading h4">Jennifer Greive</h3>
                                         <p class="block-38-subheading">Co-Founder</p>
                                     </div>
@@ -209,7 +209,7 @@
                             <div class="block-38 text-center">
                                 <div class="block-38-img">
                                     <div class="block-38-header">
-                                        <img src="images/person_3.jpg" alt="Image placeholder" class="mb-4">
+                                        <img src="images/person_3.webp" alt="Image placeholder" class="mb-4">
                                         <h3 class="block-38-heading h4">Patrick Marx</h3>
                                         <p class="block-38-subheading">Marketing</p>
                                     </div>
@@ -226,7 +226,7 @@
                             <div class="block-38 text-center">
                                 <div class="block-38-img">
                                     <div class="block-38-header">
-                                        <img src="images/person_4.jpg" alt="Image placeholder" class="mb-4">
+                                        <img src="images/person_4.webp" alt="Image placeholder" class="mb-4">
                                         <h3 class="block-38-heading h4">Mike Coolbert</h3>
                                         <p class="block-38-subheading">Sales Manager</p>
                                     </div>

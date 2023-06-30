@@ -49,15 +49,15 @@
                     <div class="col-md-6">
                         <h2 class="text-black">{{ Ucfirst($title) }}</h2>
                         <p>{{ $detail }}.</p>
-                        <p><strong class="text-primary h4"> {{ $price }}CHF</strong></p>
+                        <p><strong style="font-weight: 600"> {{ $price }}CHF</strong></p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="" style="background-image: url('images/pills.jpg'); height:100%; background-repeat:no-repeat;background-size:cover;">
+        <div class="" style="background-image: url('images/pills.webp'); height:100%; background-repeat:no-repeat;background-size:cover;">
             <div>
-                <img src='images/coverno.png' alt="virus" style="width:100%;">
+                <img src='images/coverno.webp' alt="virus" style="width:100%;">
             </div>
         </div>
         @include('layouts.footer')

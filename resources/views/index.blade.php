@@ -76,8 +76,8 @@
 
         .btn-primary {
             border-radius: 8px !important;
-            background: #00a79d !important;
-            border-color: #00a79d !important;
+            background: black!important;
+            border-color: black !important;
             color: white;
         }
 
@@ -92,7 +92,7 @@
 
         @include('layouts.navbar')
 
-        <div class="site-blocks-cover" style="background-image: url('images/hero_1.jpg');">
+        <div class="site-blocks-cover" style="background-image: url('images/health.webp');">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 mx-auto order-lg-2 align-self-center">
@@ -119,35 +119,17 @@
                 <div class="row align-items-stretch section-overlap">
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                         <div class="banner-wrap bg-primary h-100">
-                            <a href="#" class="h-100">
-                                <h5>Free <br> Shipping</h5>
-                                <p>
-                                    Amet sit amet dolor
-                                    <strong>Lorem, ipsum dolor sit amet consectetur adipisicing.</strong>
-                                </p>
-                            </a>
+                            <img width="100%" height="100%"  src="{{ asset('images/bg_1.webp') }}">
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                         <div class="banner-wrap h-100">
-                            <a href="#" class="h-100">
-                                <h5>Season <br> Sale 50% Off</h5>
-                                <p>
-                                    Amet sit amet dolor
-                                    <strong>Lorem, ipsum dolor sit amet consectetur adipisicing.</strong>
-                                </p>
-                            </a>
+                            <img width="100%" height="100%"  src="{{ asset('images/virus.webp') }}">
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                         <div class="banner-wrap bg-warning h-100">
-                            <a href="#" class="h-100">
-                                <h5>Buy <br> A Gift Card</h5>
-                                <p>
-                                    Amet sit amet dolor
-                                    <strong>Lorem, ipsum dolor sit amet consectetur adipisicing.</strong>
-                                </p>
-                            </a>
+                            <img width="100%" height="100%"  src="{{ asset('images/health.webp') }}">
                         </div>
                     </div>
 
@@ -209,7 +191,7 @@
 
                             <div class="testimony">
                                 <blockquote>
-                                    <img src="images/person_1.jpg" alt="Image"
+                                    <img src="images/person_1.webp" alt="Image"
                                         class="img-fluid w-25 mb-4 rounded-circle">
                                     <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis
                                         voluptatem consectetur quam tempore obcaecati maiores voluptate aspernatur iusto
@@ -222,7 +204,7 @@
 
                             <div class="testimony">
                                 <blockquote>
-                                    <img src="images/person_2.jpg" alt="Image"
+                                    <img src="images/person_2.webp" alt="Image"
                                         class="img-fluid w-25 mb-4 rounded-circle">
                                     <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis
                                         voluptatem consectetur quam tempore
@@ -236,7 +218,7 @@
 
                             <div class="testimony">
                                 <blockquote>
-                                    <img src="images/person_3.jpg" alt="Image"
+                                    <img src="images/person_3.webp" alt="Image"
                                         class="img-fluid w-25 mb-4 rounded-circle">
                                     <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis
                                         voluptatem consectetur quam tempore
@@ -250,7 +232,7 @@
 
                             <div class="testimony">
                                 <blockquote>
-                                    <img src="images/person_4.jpg" alt="Image"
+                                    <img src="images/person_4.webp" alt="Image"
                                         class="img-fluid w-25 mb-4 rounded-circle">
                                     <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis
                                         voluptatem consectetur quam tempore
@@ -268,9 +250,9 @@
             </div>
         </div>
 
-        <div class="" style="background-image: url('images/pills.jpg'); height:100%; background-repeat:no-repeat;background-size:cover;">
+        <div class="" style="background-image: url('images/pills.webp'); height:100%; background-repeat:no-repeat;background-size:cover;">
             <div>
-                <img src='images/coverno.png' alt="virus" style="width:100%;">
+                <img src='images/coverno.webp' alt="virus" style="width:100%;">
             </div>
         </div>
         @include('layouts.footer')
