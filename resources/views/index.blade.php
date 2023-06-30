@@ -119,17 +119,17 @@
                 <div class="row align-items-stretch section-overlap">
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                         <div class="banner-wrap  h-100">
-                            <img width="100%" height="100%"  src="{{ asset('images/bg_1.webp') }}">
+                            <img width="100%" height="100%"  src="{{ asset('images/0.png') }}">
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                         <div class="banner-wrap h-100">
-                            <img width="100%" height="100%"  src="{{ asset('images/virus.webp') }}">
+                            <img width="100%" height="100%"  src="{{ asset('images/1.png') }}">
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                         <div class="banner-wrap  h-100">
-                            <img width="100%" height="100%"  src="{{ asset('images/health2.png') }}">
+                            <img width="100%" height="100%"  src="{{ asset('images/2.png') }}">
                         </div>
                     </div>
 
