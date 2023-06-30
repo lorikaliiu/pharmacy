@@ -31,7 +31,7 @@
 
         @include('layouts.navbar')
         @if ($parameters == 'Geschichte')
-            <div class="site-blocks-cover inner-page" style="background-image: url('images/health.webp');">
+            <div class="site-blocks-cover inner-page" style="background-image: url('images/health2.png');">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-7 mx-auto align-self-center">
