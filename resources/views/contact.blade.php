@@ -22,7 +22,18 @@
 </head>
 
 <body>
+    <style>
+          .btn-primary {
+            border-radius: 8px !important;
+            background: black!important;
+            border-color: black !important;
+            color: white;
+        }
 
+        .btn.btn-primary:hover {
+            color: white !important;
+        }
+    </style>
     <div class="site-wrap">
 
         @include('layouts.navbar')
