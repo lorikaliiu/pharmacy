@@ -87,7 +87,7 @@
                         <div class="row g-0">
                             <div class="col-md-7">
                                 <div>
-                                    <img src="images/health.webp" alt="health" style="width:100%;">
+                                    <img src="images/health2.png" alt="health" style="width:100%;">
                                 </div>
                             </div>
                             <div class="col-md-5">

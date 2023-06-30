@@ -92,7 +92,7 @@
 
         @include('layouts.navbar')
 
-        <div class="site-blocks-cover" style="background-image: url('images/health.webp');">
+        <div class="site-blocks-cover" style="background-image: url('images/health2.png');">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 mx-auto order-lg-2 align-self-center">
@@ -129,7 +129,7 @@
                     </div>
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                         <div class="banner-wrap  h-100">
-                            <img width="100%" height="100%"  src="{{ asset('images/health.webp') }}">
+                            <img width="100%" height="100%"  src="{{ asset('images/health2.png') }}">
                         </div>
                     </div>
 
