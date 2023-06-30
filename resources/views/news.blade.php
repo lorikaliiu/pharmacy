@@ -334,7 +334,7 @@
             </div>
             <div class="">
                 <div>
-                    <img src='images/viruss.png' alt="virus" style="width:100%;">
+                    <img src='images/viruss.webp' alt="virus" style="width:100%;">
                 </div>
             </div>
         </div>

@@ -77,7 +77,7 @@
                         <div class="row g-0">
                             <div class="col-md-7">
                                 <div>
-                                    <img src="images/health.jpg" alt="health" style="width:100%;">
+                                    <img src="images/health.webp" alt="health" style="width:100%;">
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -149,7 +149,7 @@
                         <div class="row g-0">
                             <div class="col-md-7">
                                 <div>
-                                    <img src="images/beauty2.png" alt="beauty2" style="width:100%;">
+                                    <img src="images/beauty2.webp" alt="beauty2" style="width:100%;">
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -222,7 +222,7 @@
                         <div class="row g-0">
                             <div class="col-md-7">
                                 <div>
-                                    <img src="images/natural.jpg" alt="natural" style="width:100%;">
+                                    <img src="images/natural.webp" alt="natural" style="width:100%;">
                                 </div>
                             </div>
                             <div class="col-md-5">
