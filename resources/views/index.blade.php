@@ -118,7 +118,7 @@
             <div class="container">
                 <div class="row align-items-stretch section-overlap">
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                        <div class="banner-wrap bg-primary h-100">
+                        <div class="banner-wrap  h-100">
                             <img width="100%" height="100%"  src="{{ asset('images/bg_1.webp') }}">
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                        <div class="banner-wrap bg-warning h-100">
+                        <div class="banner-wrap  h-100">
                             <img width="100%" height="100%"  src="{{ asset('images/health.webp') }}">
                         </div>
                     </div>
