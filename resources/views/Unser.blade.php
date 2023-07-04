@@ -20,7 +20,13 @@
     <link rel="stylesheet" href="css/style.css">
 
 </head>
-
+<style>
+    @media(max-width:576px){
+        .site-blocks-cover h1{
+            font-size: 34px;
+        }
+    }
+</style>
 <body>
     @php
         $parameters = request()->input('selected');
@@ -157,8 +163,18 @@
                 </div>
             </div>
             <style>
-                .rotateimg {
+                @media(min-width:768px){
+                    .rotateimg {
                     transform: rotate(90deg);
+                }
+                .crd{
+                    width:135% !important;
+                }
+                }
+                @media(max-width:767px){
+                    .crd{
+                    width:100% !important;
+                }
                 }
             </style>
             <div class="site-section bg-light custom-border-bottom" data-aos="fade">
@@ -168,7 +184,7 @@
                             <div class="block-16">
                                 <figure>
                                     <img src="{{ asset('images/beauty2.webp') }}" alt="Image placeholder"
-                                        class=" rounded rotateimg" style="width:135% !important;">
+                                        class="rounded rotateimg crd">
 
                                 </figure>
                             </div>
@@ -228,8 +244,18 @@
                 </div>
             </div>
             <style>
-                .rotateimg {
+                @media(min-width:768px){
+                    .rotateimg {
                     transform: rotate(90deg);
+                }
+                .crd{
+                    width:135% !important;
+                }
+                }
+                @media(max-width:767px){
+                    .crd{
+                    width:100% !important;
+                }
                 }
             </style>
             <div class="site-section bg-light custom-border-bottom" data-aos="fade">
@@ -239,7 +265,7 @@
                             <div class="block-16">
                                 <figure>
                                     <img src="{{ asset('images/beauty2.webp') }}" alt="Image placeholder"
-                                        class=" rounded rotateimg" style="width:135% !important;">
+                                    class="rounded rotateimg crd">
 
                                 </figure>
                             </div>
