@@ -68,15 +68,16 @@
                     <li class="has-children">
                         <a href="#">Unser Angebot</a>
                         <ul class="dropdown">
-                            <li class="has-children">
+                            {{-- <li class="has-children">
                                 <a href="#">Naturheilkunde</a>
                                 <ul class="dropdown">
                                     <li><a href="#">+</a></li>
                                 </ul>
-                            </li>
-                            <li><a href="#">Hauspezialitätens</a></li>
-                            <li><a href="#">Kosmetik</a></li>
-                            <li><a href="#">Orlochstehen</a></li>
+                            </li> --}}
+                            <li><a href="{{ route('Unser') }}?selected=Naturheilkunde">Naturheilkunde</a></li>
+                            <li><a href="{{ route('Unser') }}?selected=Hauspezialitätens">Hauspezialitätens</a></li>
+                            <li><a href="{{ route('Unser') }}?selected=Kosmetik">Kosmetik</a></li>
+                            <li><a href="{{ route('Unser') }}?selected=Orlochstehen">Ohrloch Stechen</a></li>
                         </ul>
                     </li>
                     <li class="has-children">

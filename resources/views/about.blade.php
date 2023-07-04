@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
@@ -28,7 +27,6 @@
     @endphp
     <div class="site-wrap">
 
-
         @include('layouts.navbar')
         @if ($parameters == 'Geschichte')
             <div class="site-blocks-cover inner-page" style="background-image: url('images/health2.png');">
@@ -36,9 +34,8 @@
                     <div class="row">
                         <div class="col-lg-7 mx-auto align-self-center">
                             <div class=" text-center">
-                                <h1>About Us</h1>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum obcaecati natus iure
-                                    voluptatum eveniet harum recusandae ducimus saepe.</p>ˀ
+                                <h1>Über uns</h1>
+                                <p>Willkommen bei Apotheke Frutigen, Ihrer vertrauenswürdigen Apotheke in Frutigen!</p>
                             </div>
                         </div>
                     </div>
@@ -50,45 +47,48 @@
                         <div class="col-md-6 order-md-2">
                             <div class="block-16">
                                 <figure>
-                                    <img src="images/hero_1.webp" alt="Image placeholder" class="img-fluid rounded">
-                                    <a href="https://vimeo.com/channels/staffpicks/93951774"
-                                        class="play-button popup-vimeo"><span class="icon-play"></span></a>
+                                    <img src="{{ asset('images/about.jpg') }}" alt="Image placeholder"
+                                        class="img-fluid rounded">
 
                                 </figure>
                             </div>
                         </div>
                         <div class="col-md-5 mr-auto">
 
-
                             <div class="site-section-heading pt-3 mb-4">
-                                <h2 class="text-black">We Are Trusted Company</h2>
+                                <h2 class="text-black">Wir sind ein vertrauenswürdiges Unternehmen</h2>
                             </div>
-                            <p class="text-black">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
-                                repellat,
-                                dicta at laboriosam, nemo
-                                exercitationem itaque eveniet architecto cumque, deleniti commodi molestias repellendus
-                                quos
-                                sequi hic fugiat
-                                asperiores illum. Atque, in, fuga excepturi corrupti error corporis aliquam unde nostrum
-                                quas.</p>
-                            <p class="text-black">Accusantium dolor ratione maiores est deleniti nihil? Dignissimos est,
-                                sunt nulla illum autem in, quibusdam
-                                cumque recusandae, laudantium minima repellendus.</p>
+                            <p class="text-black">Willkommen bei Apotheke Frutigen, Ihrer vertrauenswürdigen Apotheke in
+                                Frutigen!
+                                Wir freuen uns, Ihnen eine umfassende Palette pharmazeutischer Dienstleistungen und
+                                Produkte anzubieten, um Ihre Gesundheitsbedürfnisse zu erfüllen. Unsere Apotheke ist
+                                darauf spezialisiert, Ihnen außergewöhnlichen Kundenservice zu bieten und Ihre
+                                Gesundheit steht bei uns an erster Stelle.
+                                Ob Sie verschreibungspflichtige Medikamente, rezeptfreie Arzneimittel,
+                                Nahrungsergänzungsmittel oder Körperpflegeprodukte benötigen - wir haben alles für Sie
+                                vorrätig. Unser erfahrenes und kompetentes Team von Apothekern steht Ihnen bei Fragen
+                                oder Anliegen zu Ihren Medikamenten oder Ihrer allgemeinen Gesundheit zur Seite.
+                                <br>
+                                <br>
+                                Mit freundlichen Grüßen
+                                <br>
+                                <br>
+                                Apotheke Frutigen.
+                            </p>
 
                         </div>
                     </div>
                 </div>
             </div>
         @elseif($parameters == 'Job')
-            <div class="site-section bg-light custom-border-bottom" data-aos="fade">
+            <div class="site-section bg-light custom-border-bottom" data-aos="fade" style="margin-top: 100px">
                 <div class="container">
                     <div class="row mb-5">
                         <div class="col-md-6">
                             <div class="block-16">
                                 <figure>
-                                    <img src="images/bg_1.webp" alt="Image placeholder" class="img-fluid rounded">
-                                    <a href="https://vimeo.com/channels/staffpicks/93951774"
-                                        class="play-button popup-vimeo"><span class="icon-play"></span></a>
+                                    <img src="{{ asset('images/job.jpg') }}" alt="Image placeholder" class="img-fluid rounded">
+                                    
 
                                 </figure>
                             </div>
@@ -97,66 +97,20 @@
 
                         <div class="col-md-5">
 
-
                             <div class="site-section-heading pt-3 mb-4">
-                                <h2 class="text-black">How We Started</h2>
+                                <h2 class="text-black">Wie wir angefangen haben</h2>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius repellat, dicta at
-                                laboriosam,
-                                nemo
-                                exercitationem itaque eveniet architecto cumque, deleniti commodi molestias repellendus
-                                quos
-                                sequi hic fugiat
-                                asperiores illum. Atque, in, fuga excepturi corrupti error corporis aliquam unde nostrum
-                                quas.</p>
-                            <p>Accusantium dolor ratione maiores est deleniti nihil? Dignissimos est, sunt nulla illum
-                                autem
-                                in, quibusdam
-                                cumque recusandae, laudantium minima repellendus.</p>
+                            <p>Herzlich willkommen bei Apotheke Frutigen, Ihrer vertrauenswürdigen Apotheke in Frutigen!
+                                Wir möchten Ihnen gerne einen Einblick in unsere Anfänge geben und wie wir zu dem
+                                Unternehmen geworden sind, das wir heute sind.
+                                <br>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                Unsere Geschichte begann vor vielen Jahren, als wir erkannten, dass die Gemeinde
+                                Frutigen einen zuverlässigen und zugänglichen Ort für ihre pharmazeutischen Bedürfnisse
+                                benötigte. Mit dieser Vision haben wir uns entschlossen, eine Apotheke zu begründen, die
+                                eine qualitativ hochwertige Versorgung mit Medikamenten und Gesundheitsprodukten bietet.
+                            </p>
 
-
-            <div class="site-section site-section-sm site-blocks-1 border-0" data-aos="fade">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
-                            <div class="icon mr-4 align-self-start">
-                                <span class="icon-truck text-primary"></span>
-                            </div>
-                            <div class="text">
-                                <h2>Free Shipping</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam.
-                                    Integer accumsan
-                                    tincidunt fringilla.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up"
-                            data-aos-delay="100">
-                            <div class="icon mr-4 align-self-start">
-                                <span class="icon-refresh2 text-primary"></span>
-                            </div>
-                            <div class="text">
-                                <h2>Free Returns</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam.
-                                    Integer accumsan
-                                    tincidunt fringilla.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up"
-                            data-aos-delay="200">
-                            <div class="icon mr-4 align-self-start">
-                                <span class="icon-help text-primary"></span>
-                            </div>
-                            <div class="text">
-                                <h2>Customer Support</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam.
-                                    Integer accumsan
-                                    tincidunt fringilla.</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -243,7 +197,6 @@
                 </div>
             </div>
         @endif
-
 
         @include('layouts.footer')
     </div>
