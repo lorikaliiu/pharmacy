@@ -104,10 +104,10 @@
                                     <a href="{{ route('shop') }}" class="btn btn-primary px-5 py-3">Produkte</a>
                                 </p>
                             </div>
-                            <div class="buttons-container d-sm-none d-block ">
+                            {{-- <div class="buttons-container d-sm-none d-block ">
                                 <button type="button" class="btn btn-primary px-5 py-3" data-toggle="modal"
                                     data-target="#kategoriModal">Kategotie</button>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

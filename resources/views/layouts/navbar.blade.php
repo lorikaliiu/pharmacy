@@ -57,9 +57,11 @@
                                 <a href="{{ route('news') }}?selected=Corona Pandemie">Corona Pandemie</a>
                                 <ul class="dropdown">
                                     @foreach ($coronaNews as $news)
-                                        <li><a
-                                                href="{{ route('news', ['selected' => $news->id]) }}">{{ $news->title }}</a>
-                                        </li>
+                                    <li>
+                                        <a href="{{ route('news', ['selected' => $news->id]) }}">
+                                            {{ substr($news->title, 0, 10) }}{{ strlen($news->title) > 10 ? '...' : '' }}
+                                        </a>
+                                    </li>
                                     @endforeach
                                 </ul>
                             </li>
